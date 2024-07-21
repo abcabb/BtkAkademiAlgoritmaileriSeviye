@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
-namespace DataStructures
+namespace DataStructures.Array
 {
     public class Array<T> : IEnumerable<T>, ICloneable
     {
