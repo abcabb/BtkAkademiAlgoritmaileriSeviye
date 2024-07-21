@@ -10,7 +10,7 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-
+            Console.WriteLine("");
         }
     }
 }
