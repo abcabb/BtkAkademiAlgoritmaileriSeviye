@@ -18,6 +18,14 @@ namespace BtkAkademiAlgoritmaileriSeviye
             Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
             array.Add(50);
             Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            array.Add(55);
+            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            array.Add(60);
+            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            array.Add(65);
+            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            array.Add(70);
+            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
 
             Console.ReadKey();
         }
