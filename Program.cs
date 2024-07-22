@@ -26,6 +26,8 @@ namespace BtkAkademiAlgoritmaileriSeviye
             Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
             array.Add(70);
             Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            array.Remove();
+            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
 
             Console.ReadKey();
         }

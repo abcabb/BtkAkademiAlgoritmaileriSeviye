@@ -46,6 +46,18 @@ namespace DataStructures.Array
         }
          */
 
+        public T Remove()
+        {
+            if (Count == 0)
+                throw new Exception("There is no more item to removed from the array.");
+            var gecici = innerList[Count - 1];
+            #region Dizinin Son elemanını Heap'den de silmek için
+            //innerList[Count - 1] = default(T);
+            #endregion
+            Count--; // Sadece bunu yaparsan aslında dizin elemanını silmiyoruz. O hala Heap'de duruyor. Ama dizinin Count sayısını küçülterek boyutunu küçültmüş gibi gösteriyoruz.
+            return gecici; //Bunu döndürmemizin sebebi ihtiyaç durumunda son sildiğimiz elemanın ne olduğunu görebilmek içindir. Böylece kullanışlı bir fonksiyon inşa etmiş oluruz.
+        }        
+
         public object Clone()
         {
             throw new NotImplementedException();
