@@ -89,7 +89,14 @@ namespace DataStructures.Array
 
         public object Clone()
         {
-            return this.MemberwiseClone(); // Mevcut instance'ın birebir (sığ) kopyasını döner. Heap'de iki tane aynı nesneden oluşmuş olur. Birbirlerinden etkilenmezler.
+            //return this.MemberwiseClone(); // Mevcut instance'ın birebir (sığ) kopyasını döner. Heap'de iki tane aynı nesneden oluşmuş olur. Birbirlerinden etkilenmezler.
+            //Deep Copy (Sıfırdan oluşturarak)
+            var arr = new Array<T>();
+            foreach (var item in innerList)
+            {
+                arr.Add(item);
+            }
+            return arr;
         }
 
         public IEnumerator<T> GetEnumerator()

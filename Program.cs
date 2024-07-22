@@ -22,7 +22,7 @@ namespace BtkAkademiAlgoritmaileriSeviye
             crr.Add(18);
             
             ArrayGoster(arr);
-            ArrayGoster(crr); //Birbirlerini etkilemezler.
+            ArrayGoster(crr); //Yine birbirlerini etkilemezler
 
 
             Console.ReadKey();
