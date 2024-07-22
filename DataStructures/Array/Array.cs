@@ -18,6 +18,15 @@ namespace DataStructures.Array
             innerList = new T[2];
             Count = 0;
         }
+
+        public Array(params T[] initial)
+        {
+            innerList = new T[initial.Length];
+            Count = 0;  
+                foreach (var item in initial) 
+                    Add(item);
+        }
+
         public void Add(T item)
         {
             if (Count == innerList.Length)

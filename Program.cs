@@ -11,18 +11,12 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var array = new DataStructures.Array.Array<int>(); //Unutma, Array<> bizim oluşturduğumuz generic class.
+            var array = new DataStructures.Array.Array<int>(25, 30, 35, 40); // Yeni constructor sayesinde
 
             ArrayGoster(array);
             array.Add(45);
             ArrayGoster(array);
             array.Add(50);
-            ArrayGoster(array);
-            array.Add(55);
-            ArrayGoster(array);
-            array.Add(60);
-            ArrayGoster(array);
-            array.Add(65);
             ArrayGoster(array);
 
             array.Remove();
