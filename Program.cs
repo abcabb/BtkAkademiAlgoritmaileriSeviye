@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStructures.Array;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,15 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("");
+            var array = new DataStructures.Array.Array<int>(); //Unutma, Array<> bizim oluşturduğumuz generic class.
+
+            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            array.Add(45);
+            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            array.Add(50);
+            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+
+            Console.ReadKey();
         }
     }
 }

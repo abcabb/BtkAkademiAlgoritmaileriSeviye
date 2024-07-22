@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DataStructures.Array
 {
@@ -16,6 +18,12 @@ namespace DataStructures.Array
             innerList = new T[2];
             Count = 0;
         }
+
+        public void Add(T item)
+        {
+            innerList[Count++] = item;            
+        }
+
         public object Clone()
         {
             throw new NotImplementedException();
