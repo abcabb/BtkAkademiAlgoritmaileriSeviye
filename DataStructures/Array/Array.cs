@@ -89,7 +89,7 @@ namespace DataStructures.Array
 
         public object Clone()
         {
-            throw new NotImplementedException();
+            return this.MemberwiseClone(); // Mevcut instance'ın birebir (sığ) kopyasını döner. Heap'de iki tane aynı nesneden oluşmuş olur. Birbirlerinden etkilenmezler.
         }
 
         public IEnumerator<T> GetEnumerator()
