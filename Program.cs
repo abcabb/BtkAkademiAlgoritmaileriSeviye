@@ -13,23 +13,40 @@ namespace BtkAkademiAlgoritmaileriSeviye
         {
             var array = new DataStructures.Array.Array<int>(); //Unutma, Array<> bizim oluşturduğumuz generic class.
 
-            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            ArrayGoster(array);
             array.Add(45);
-            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            ArrayGoster(array);
             array.Add(50);
-            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            ArrayGoster(array);
             array.Add(55);
-            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            ArrayGoster(array);
             array.Add(60);
-            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            ArrayGoster(array);
             array.Add(65);
-            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
-            array.Add(70);
-            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            ArrayGoster(array);
+
             array.Remove();
-            Console.WriteLine($"Count : {array.Count} / Capacity : {array.Capacity}");
+            ArrayGoster(array);
+            array.Remove();
+            ArrayGoster(array);
+            array.Remove();
+            ArrayGoster(array);
+            array.Remove();
+            ArrayGoster(array);
+            array.Remove();
+            ArrayGoster(array);
 
             Console.ReadKey();
+        }
+
+        static void ArrayGoster(Array<int> arr)
+        {
+            Console.WriteLine("Elements Of Array :");
+            foreach (int i in arr)
+            {
+                Console.Write(i+" ");
+            }
+            Console.WriteLine($"\nCount : {arr.Count} / Capacity : {arr.Capacity}\n");
         }
     }
 }
