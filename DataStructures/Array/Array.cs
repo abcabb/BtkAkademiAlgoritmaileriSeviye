@@ -70,7 +70,7 @@ namespace DataStructures.Array
 
             var gecici = innerList[Count - 1];
             #region Dizinin Son elemanını Heap'den de silmek için
-            //innerList[Count - 1] = default(T);
+            innerList[Count - 1] = default(T);
             #endregion
             Count--; // Sadece bunu yaparsan aslında dizin elemanını silmiyoruz. O hala Heap'de duruyor. Ama dizinin Count sayısını küçülterek boyutunu küçültmüş gibi gösteriyoruz.
 
@@ -105,6 +105,42 @@ namespace DataStructures.Array
             {
                 this.Add(item);
             }
+        }
+        
+        //var arr1 = new List<int>() {1,2,3,4,5,6,7,8,9};
+        // 5 elemanını sil.
+        //arr1.Remove(5);
+
+        public void Remove(T item)
+        {
+            // item = 5;
+            int itemIndex = lineerSearh(item);
+            if(itemIndex < 0) { Console.WriteLine("Item cannot found."); }
+            innerList[itemIndex] = default(T);
+            int i = itemIndex;
+            do
+            {
+                innerList[i] = innerList[i+1];
+                i++;
+
+            } while (!innerList[i].Equals(default(T))); // T veri tipi mantıksal operatör kullanamadığı için yine Equals fonksiyonunu uyguladık.
+
+        }
+
+        private int lineerSearh(T target)
+        {
+            int indexOfTarget = -1; //Bulamzsa -1 değeri dönecek
+            int i = 0;
+            while (indexOfTarget == -1)
+            {
+                if (innerList[i].Equals(target)) //T generic bir veri tipi ve içerisinde kesin olarak "==" gibi mantıksal operatörleri bulundurmuyor. O yüzden equals metodunu kullandık.
+                {
+                    indexOfTarget = i;
+                }
+                i++;              
+            }
+
+            return indexOfTarget;
         }
 
         private void Half()
