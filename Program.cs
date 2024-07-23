@@ -15,9 +15,11 @@ namespace BtkAkademiAlgoritmaileriSeviye
         {
             var linkedList = new SinglyLinkedList<int>();
             
-            linkedList.AddFirst(1);
-            linkedList.AddFirst(2);
-            linkedList.AddFirst(3);
+            linkedList.AddLast(1);
+            linkedList.AddLast(2);
+            linkedList.AddLast(3);
+            linkedList.AddFirst(4);
+            linkedList.AddFirst(5);
 
             Console.ReadKey();
         }
