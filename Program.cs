@@ -41,6 +41,11 @@ namespace BtkAkademiAlgoritmaileriSeviye
             //Sonuç :
             // 1 -> 2 -> 10 -> 20 -> 30 -> 40 -> 3 -> 4 -> 5 
 
+            foreach (var item in linkedList)
+            {
+                Console.Write(item + " ");
+            }
+
             Console.ReadKey();
         }
     }

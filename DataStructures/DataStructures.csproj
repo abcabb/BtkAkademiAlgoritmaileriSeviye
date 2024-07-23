@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Array\Array.cs" />
     <Compile Include="LinkedList\SinglyLinkedList\SinglyLinkedList.cs" />
+    <Compile Include="LinkedList\SinglyLinkedList\SinglyLinkedListEnumerator.cs" />
     <Compile Include="LinkedList\SinglyLinkedList\SinglyLinkedListNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

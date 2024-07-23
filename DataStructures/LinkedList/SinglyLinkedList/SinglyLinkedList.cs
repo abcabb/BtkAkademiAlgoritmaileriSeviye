@@ -1,5 +1,6 @@
 ﻿using System;
 using System.CodeDom;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataStructures.LinkedList.SinglyLinkedList
 {
-    public class SinglyLinkedList<T>
+    public class SinglyLinkedList<T> : IEnumerable<T>
     {
         public SinglyLinkedListNode<T> Head;
 
@@ -135,6 +136,16 @@ namespace DataStructures.LinkedList.SinglyLinkedList
                 current = current.next;
             }
             throw new ArgumentException("The reference node is not in the list.");
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new SinglyLinkedListEnumerator<T>(Head);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }
