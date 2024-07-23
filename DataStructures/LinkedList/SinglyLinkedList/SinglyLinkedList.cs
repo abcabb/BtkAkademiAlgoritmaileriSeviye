@@ -37,6 +37,36 @@ namespace DataStructures.LinkedList.SinglyLinkedList
 
             current.next = newNode;
         }
+
+        public void AddAfter(SinglyLinkedListNode<T> node, T value)
+        {
+            if(node == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if(Head == null)
+            {
+                AddFirst(value);
+                return;
+            }
+
+            var newNode = new SinglyLinkedListNode<T>(value);
+            var current = Head;
+            
+            while(current != null)
+            {
+                if(current == node)
+                {
+                    newNode.next = current.next;
+                    current.next = newNode;
+                    return;
+                }
+                current = current.next;
+            }
+            throw new ArgumentException("The reference node is not in the list.");
+
+        }
        
     }
 }
