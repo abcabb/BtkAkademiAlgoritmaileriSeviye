@@ -79,14 +79,6 @@ namespace DataStructures.Array
  
             return gecici; //Bunu döndürmemizin sebebi ihtiyaç durumunda son sildiğimiz elemanın ne olduğunu görebilmek içindir. Böylece kullanışlı bir fonksiyon inşa etmiş oluruz.
         }
-
-        private void Half()
-        {
-            var gecici = new T[innerList.Length/2];
-            System.Array.Copy(innerList, gecici, innerList.Length/2);
-            innerList = gecici;
-        }
-
         public object Clone()
         {
             //return this.MemberwiseClone(); // Mevcut instance'ın birebir (sığ) kopyasını döner. Heap'de iki tane aynı nesneden oluşmuş olur. Birbirlerinden etkilenmezler.
@@ -97,6 +89,29 @@ namespace DataStructures.Array
                 arr.Add(item);
             }
             return arr;
+        }
+
+        public void AddRange(params T[] values)
+        {
+            foreach (var item in values)
+            {
+                this.Add(item);
+            }
+        }
+
+        public void AddRangeOf(IEnumerable<T> collection)
+        {
+            foreach (var item in collection)
+            {
+                this.Add(item);
+            }
+        }
+
+        private void Half()
+        {
+            var gecici = new T[innerList.Length/2];
+            System.Array.Copy(innerList, gecici, innerList.Length/2);
+            innerList = gecici;
         }
 
         public IEnumerator<T> GetEnumerator()

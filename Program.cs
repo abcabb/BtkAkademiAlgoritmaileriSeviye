@@ -13,17 +13,18 @@ namespace BtkAkademiAlgoritmaileriSeviye
         static void Main(string[] args)
         {
             var arr = new DataStructures.Array.Array<int>(1, 3, 5, 7);
-            var crr = (DataStructures.Array.Array<int>)arr.Clone(); // Bu, object tipinde bir ifade döndürür. içerisinde ne kadar bir Array<T> bulundursa da fonksiyon obje döndürdüğü için unboxing yapmamız gerekir.
-            // Eğer unboxing yapmazsan Array<T>'nin implemente ettiği IEnumerable gibi interface'lerin özelliklerinden yararlanamazsın.
 
+            arr.Add(9);
+            arr.Add(11);
             ArrayGoster(arr);
-            ArrayGoster(crr);
 
-            crr.Add(18);
-            
+            arr.AddRange(101, 103, 105);
             ArrayGoster(arr);
-            ArrayGoster(crr); //Yine birbirlerini etkilemezler
 
+            var list1 = new List<int>() {203, 205, 207 };
+
+            arr.AddRangeOf(list1);
+            ArrayGoster(arr);
 
             Console.ReadKey();
         }
