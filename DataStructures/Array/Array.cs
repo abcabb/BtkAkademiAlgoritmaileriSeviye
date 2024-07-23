@@ -114,6 +114,10 @@ namespace DataStructures.Array
         public void Remove(T item)
         {
             // item = 5;
+
+            if (Count == 0)
+                throw new Exception("There is no more item to removed from the array.");
+
             int itemIndex = lineerSearh(item);
             if(itemIndex < 0) { Console.WriteLine("Item cannot found."); }
             innerList[itemIndex] = default(T);
@@ -124,11 +128,23 @@ namespace DataStructures.Array
                 i++;
 
             } while (!innerList[i].Equals(default(T))); // T veri tipi mantıksal operatör kullanamadığı için yine Equals fonksiyonunu uyguladık.
+            Count--;
 
+            if (Capacity / 2 == Count)
+                Half();
         }
 
         private int lineerSearh(T target)
         {
+            // Daha verimli Ve Temiz Kod.
+            for(int i=0; i<Count; i++)
+            {
+                if (innerList[i].Equals(target))
+                    return i;
+            }
+
+            return -1; 
+            /*                               Benim Yazdığım Karmaşık ve Gereksiz Uzun Kod
             int indexOfTarget = -1; //Bulamzsa -1 değeri dönecek
             int i = 0;
             while (indexOfTarget == -1)
@@ -139,8 +155,7 @@ namespace DataStructures.Array
                 }
                 i++;              
             }
-
-            return indexOfTarget;
+            */
         }
 
         private void Half()

@@ -29,7 +29,7 @@ namespace BtkAkademiAlgoritmaileriSeviye
             arr.AddRangeOf(list1);
             ArrayGoster(arr);
 
-            Console.WriteLine("\n3 ELEMANI .Remove İLE ÇIKAR");
+            Console.WriteLine("3 ELEMANI .Remove İLE ÇIKAR");
             arr.Remove();
             arr.Remove();
             arr.Remove();
