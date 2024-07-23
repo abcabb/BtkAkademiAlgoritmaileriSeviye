@@ -32,6 +32,15 @@ namespace BtkAkademiAlgoritmaileriSeviye
             //Sonuç :
             // 1 -> 2 -> 30 -> 40 -> 3 -> 4 -> 5 
 
+            linkedList.AddBefore(linkedList.Head.next.next, 20);
+            //Sonuç :
+            // 1 -> 2 -> 20 -> 30 -> 40 -> 3 -> 4 -> 5 
+
+            var node2 = new SinglyLinkedListNode<int>(10);
+            linkedList.AddBefore(linkedList.Head.next.next, node2);
+            //Sonuç :
+            // 1 -> 2 -> 10 -> 20 -> 30 -> 40 -> 3 -> 4 -> 5 
+
             Console.ReadKey();
         }
     }

@@ -95,5 +95,46 @@ namespace DataStructures.LinkedList.SinglyLinkedList
             throw new ArgumentException("The reference node is not in the list.");
         }
        
+        public void AddBefore(SinglyLinkedListNode<T> node, T value)
+        {
+            if(Head == null)
+            {
+                AddFirst(value);
+            }
+            
+            var newNode = new SinglyLinkedListNode<T>(value);
+            var current = Head;
+            while(current != null)
+            {
+                if(current.next == node)
+                {
+                    newNode.next = current.next;
+                    current.next = newNode;
+                    return;
+                }
+                current = current.next;
+            }
+            throw new ArgumentException("The reference node is not in the list.");
+        }
+
+        public void AddBefore(SinglyLinkedListNode<T> refNode, SinglyLinkedListNode<T> newNode)
+        {
+            if (newNode == null) { throw new ArgumentNullException(); }
+
+            if (Head == null) { AddFirst(newNode.Value); }
+
+            var current = Head;
+            while(current != null)
+            {
+                if(current.next == refNode)
+                {
+                    newNode.next = current.next;
+                    current.next = newNode;
+                    return;
+                }
+                current = current.next;
+            }
+            throw new ArgumentException("The reference node is not in the list.");
+        }
     }
 }
