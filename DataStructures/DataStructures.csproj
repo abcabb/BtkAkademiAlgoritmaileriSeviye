@@ -42,7 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Array\Array.cs" />
+    <Compile Include="LinkedList\SinglyLinkedList\SinglyLinkedList.cs" />
+    <Compile Include="LinkedList\SinglyLinkedList\SinglyLinkedListNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LinkedList\SinglyLinkedList\cd_SinglyLinkedList.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
