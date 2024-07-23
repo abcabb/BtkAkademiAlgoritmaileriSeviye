@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -65,7 +66,33 @@ namespace DataStructures.LinkedList.SinglyLinkedList
                 current = current.next;
             }
             throw new ArgumentException("The reference node is not in the list.");
+        }
 
+        public void AddAfter(SinglyLinkedListNode<T> refNode, SinglyLinkedListNode<T> newNode)
+        {
+            if(newNode == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if(Head == null)
+            {
+                AddFirst(newNode.Value);
+                return;
+            }
+
+            var current = Head;
+            while(current != null)
+            {
+                if(current == refNode)
+                {
+                    newNode.next = refNode.next;
+                    refNode.next = newNode;
+                    return;
+                }
+                current = current.next;
+            }
+            throw new ArgumentException("The reference node is not in the list.");
         }
        
     }
