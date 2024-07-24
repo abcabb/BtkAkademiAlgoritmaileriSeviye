@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataStructures.LinkedList.SinglyLinkedList;
+using System.Runtime.InteropServices;
 
 namespace BtkAkademiAlgoritmaileriSeviye
 {
@@ -13,25 +14,24 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var arr = new char[] { 'a', 'b', 'c' };
-            var arrList = new ArrayList(arr);
-            var list = new List<char>(arr);
-            var cLinkedList = new LinkedList<char>(arr);
-            list.AddRange(new char[] { 'd', 'e', 'f' });
+            //LINQ - Language Integrated Query - Dile Entegre Sorgular
 
-            var linkedList = new SinglyLinkedList<char>(list);
+            var rnd = new Random();
+            var initial = Enumerable.Range(1, 10).OrderBy(x => rnd.Next()).ToList();
 
-            foreach(var item in linkedList)
-            {
-                Console.WriteLine(item);
-            }
+            var linkedList = new SinglyLinkedList<int>(initial);
 
-            var charSet = new List<char>(linkedList);
-            Console.WriteLine("");
-            foreach(var item in charSet) { Console.Write(item + " "); }
+            foreach (var item in linkedList) { Console.WriteLine(item); }
 
+            var q = from item in linkedList
+                    where item % 2 == 1
+                    select item;
 
-            Console.ReadKey();
+            foreach (var item in q) { Console.WriteLine(item); }
+
+            linkedList.Where(x => x>5).ToList().ForEach(x => Console.Write(x + " "));
+
+                Console.ReadKey();
         }
     }
 }
