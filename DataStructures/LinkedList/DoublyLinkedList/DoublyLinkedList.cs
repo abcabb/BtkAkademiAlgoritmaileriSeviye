@@ -164,5 +164,25 @@ namespace DataStructures.LinkedList.DoublyLinkedList
 
             return value;
         }
+
+        public T RemoveLast()
+        {
+            if (isHeadNull) { throw new ArgumentException("There is nothing to remove."); }
+
+            var value = Tail.Value;
+
+            if(Head == Tail)
+            {
+                Head = null;
+                Tail = null;
+            }
+            else
+            {
+                Tail = Tail.prev;
+                Tail.next = null;
+            }
+
+            return value;
+        }
     }
 }

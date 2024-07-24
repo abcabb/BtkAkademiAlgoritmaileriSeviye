@@ -22,16 +22,9 @@ namespace BtkAkademiAlgoritmaileriSeviye
                 Console.WriteLine(item);
             }
 
-            Console.WriteLine();
-            Console.WriteLine(dbLinkedList.RemoveFirst() + " removed from linked list.\n");
+            Console.WriteLine(dbLinkedList.RemoveLast() + " removed");
+            Console.WriteLine(dbLinkedList.RemoveLast() + " removed");
 
-            foreach (var item in dbLinkedList)
-            {
-                Console.WriteLine(item);
-            }
-
-            Console.WriteLine();
-            Console.WriteLine(dbLinkedList.RemoveFirst() + " removed from linked list.\n");
 
             foreach (var item in dbLinkedList)
             {
