@@ -21,8 +21,11 @@ namespace BtkAkademiAlgoritmaileriSeviye
 
             foreach (var item in list) { Console.WriteLine(item); }
 
-            list.RemoveFirst();
-            list.RemoveFirst();
+            Console.WriteLine($"\n{list.RemoveFirst()} has been removed.");
+            Console.WriteLine($"\n{list.RemoveFirst()} has been removed.");
+
+            Console.WriteLine($"\n{list.RemoveLast()} has been removed.");
+            Console.WriteLine($"\n{list.RemoveLast()} has been removed.\n");
 
             foreach (var item in list) { Console.Write(item + " "); }
        
