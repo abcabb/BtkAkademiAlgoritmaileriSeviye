@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataStructures.LinkedList.SinglyLinkedList;
+using DataStructures.LinkedList.DoublyLinkedList;
 using System.Runtime.InteropServices;
 
 namespace BtkAkademiAlgoritmaileriSeviye
@@ -14,18 +15,12 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var list = new SinglyLinkedList<int>(new int[] { 1, 2, 3, 4, 5, 6});
+            var dbLinkedList = new DoublyLinkedList<int>();
 
-            foreach (int i in list) { Console.Write(i + " "); }
+            dbLinkedList.AddFirst(10);
+            dbLinkedList.AddFirst(20);
+            dbLinkedList.AddFirst(30);
 
-            list.Remove(2);
-            list.Remove(5);
-            list.Remove(4);
-            list.Remove(10);
-
-            Console.WriteLine("\n");
-            foreach (int i in list) { Console.Write(i + " "); }
-       
             Console.ReadKey();
         }
     }
