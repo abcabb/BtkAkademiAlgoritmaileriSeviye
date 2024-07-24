@@ -155,7 +155,7 @@ namespace DataStructures.LinkedList.SinglyLinkedList
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
 
         public T RemoveFirst()

@@ -15,6 +15,18 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
+            var dbLinkedList = new DoublyLinkedList<char>(new List<char>() { 'a', 'b', 'c', 'd' });
+
+            foreach (var item in dbLinkedList)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.ReadKey();
+        }
+
+        private static void DoublyLinkedListApp01()
+        {
             var dbLinkedList = new DoublyLinkedList<int>();
 
             dbLinkedList.AddFirst(10);
@@ -32,8 +44,6 @@ namespace BtkAkademiAlgoritmaileriSeviye
             {
                 Console.WriteLine(item);
             }
-
-                Console.ReadKey();
         }
     }
 }

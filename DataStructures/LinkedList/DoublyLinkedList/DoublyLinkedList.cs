@@ -14,6 +14,14 @@ namespace DataStructures.LinkedList.DoublyLinkedList
 
         public DoublyLinkedList() { }
 
+        public DoublyLinkedList(IEnumerable<T> collection)
+        {
+            foreach (T item in collection)
+            {
+                this.AddLast(item);
+            } 
+        }
+
         public void AddFirst(T value)
         {
             var newNode = new DoublyLinkedListNode<T>(value);
@@ -122,8 +130,8 @@ namespace DataStructures.LinkedList.DoublyLinkedList
         {
             var list = new List<DoublyLinkedListNode<T>>();
             var current = Head;
-            
-            while(current != null)
+
+            while (current != null)
             {
                 list.Add(current);
                 current = current.next;
