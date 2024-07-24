@@ -13,6 +13,15 @@ namespace DataStructures.LinkedList.SinglyLinkedList
     {
         public SinglyLinkedListNode<T> Head;
 
+        public SinglyLinkedList() { }
+
+        public SinglyLinkedList(IEnumerable collection)
+        {
+            foreach (T item in collection)
+                this.AddFirst(item);
+            
+        }
+
         public void AddFirst(T Value)
         {
             var newNode = new SinglyLinkedListNode<T>(Value);

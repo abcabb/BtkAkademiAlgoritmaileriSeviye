@@ -13,38 +13,23 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var linkedList = new SinglyLinkedList<int>();
-            
-            linkedList.AddLast(3);
-            linkedList.AddLast(4);
-            linkedList.AddLast(5);
-            linkedList.AddFirst(2);
-            linkedList.AddFirst(1);
-            // Sonuç :
-            // 1 -> 2 -> 3 -> 4 -> 5 
+            var arr = new char[] { 'a', 'b', 'c' };
+            var arrList = new ArrayList(arr);
+            var list = new List<char>(arr);
+            var cLinkedList = new LinkedList<char>(arr);
+            list.AddRange(new char[] { 'd', 'e', 'f' });
 
-            linkedList.AddAfter(linkedList.Head.next, 30);
-            //Sonuç :
-            // 1 -> 2 -> 30 -> 3 -> 4 -> 5 
+            var linkedList = new SinglyLinkedList<char>(list);
 
-            var node1 = new SinglyLinkedListNode<int>(40);
-            linkedList.AddAfter(linkedList.Head.next.next, node1);
-            //Sonuç :
-            // 1 -> 2 -> 30 -> 40 -> 3 -> 4 -> 5 
-
-            linkedList.AddBefore(linkedList.Head.next.next, 20);
-            //Sonuç :
-            // 1 -> 2 -> 20 -> 30 -> 40 -> 3 -> 4 -> 5 
-
-            var node2 = new SinglyLinkedListNode<int>(10);
-            linkedList.AddBefore(linkedList.Head.next.next, node2);
-            //Sonuç :
-            // 1 -> 2 -> 10 -> 20 -> 30 -> 40 -> 3 -> 4 -> 5 
-
-            foreach (var item in linkedList)
+            foreach(var item in linkedList)
             {
-                Console.Write(item + " ");
+                Console.WriteLine(item);
             }
+
+            var charSet = new List<char>(linkedList);
+            Console.WriteLine("");
+            foreach(var item in charSet) { Console.Write(item + " "); }
+
 
             Console.ReadKey();
         }
