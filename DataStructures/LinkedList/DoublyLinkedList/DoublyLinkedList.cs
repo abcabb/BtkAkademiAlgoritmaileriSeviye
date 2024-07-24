@@ -11,6 +11,7 @@ namespace DataStructures.LinkedList.DoublyLinkedList
     {
         public DoublyLinkedListNode<T> Head;
         public DoublyLinkedListNode<T> Tail;
+        private bool isHeadNull => Head == null; //Karşılaştırma sonucu neyse isHeadNull'a o sonucu döner.
 
         public DoublyLinkedList() { }
 
@@ -142,6 +143,26 @@ namespace DataStructures.LinkedList.DoublyLinkedList
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this.GetAllNodes().GetEnumerator();
+        }
+
+        public T RemoveFirst()
+        {
+            if (isHeadNull) { throw new ArgumentException("There is nothing to remove."); }
+
+            var value = Head.Value;
+
+            if(Head == Tail)
+            {
+                Head = null;
+                Tail = null;
+            }
+            else
+            {                
+                Head = Head.next;
+                Head.prev = null;
+            }
+
+            return value;
         }
     }
 }
