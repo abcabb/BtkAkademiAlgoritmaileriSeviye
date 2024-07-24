@@ -46,5 +46,41 @@ namespace DataStructures.LinkedList.DoublyLinkedList
             newNode.prev = Tail;
             Tail = newNode;
         }
+
+        public void AddAfter(DoublyLinkedListNode<T> refNode, DoublyLinkedListNode<T> newNode)
+        {
+            if(refNode == null || newNode == null) { throw new ArgumentNullException(); }
+
+            if(refNode == Head && refNode == Tail)
+            {
+                refNode.next = newNode;
+                refNode.prev = null;
+
+                newNode.next = null;
+                newNode.prev = refNode;
+
+                Head = refNode;
+                Tail = newNode;
+                return;
+            }
+
+            if(refNode != Tail)
+            {
+                newNode.next = refNode.next;
+                newNode.prev = refNode;
+
+                refNode.next.prev = newNode;
+                refNode.next = newNode;
+            }
+            else
+            {
+                newNode.next = null;
+                newNode.prev = refNode;
+
+                refNode.next = newNode;
+
+                Tail = newNode;
+            }
+        }
     }
 }
