@@ -156,5 +156,13 @@ namespace DataStructures.LinkedList.SinglyLinkedList
         {
             throw new NotImplementedException();
         }
+
+        public T RemoveFirst()
+        {
+            if(Head == null) { throw new Exception("UnderFlow. There is nothing to remove."); }
+            var firstValue = Head.Value;
+            Head = Head.next;
+            return firstValue;
+        }
     }
 }

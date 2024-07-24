@@ -10,8 +10,16 @@
   <Class Name="DataStructures.LinkedList.SinglyLinkedList.SinglyLinkedList&lt;T&gt;">
     <Position X="3" Y="1" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AACAABAAAAAAAJAAAAAAIAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <HashCode>AACAABAAAAAAAJAAAAAAIAAAAAAQAAAEAAAAAAAAAAA=</HashCode>
       <FileName>LinkedList\SinglyLinkedList\SinglyLinkedList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DataStructures.LinkedList.SinglyLinkedList.SinglyLinkedListEnumerator&lt;T&gt;">
+    <Position X="5.5" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAABIAAAACAAAAAAAAAAAAAoAAABAAAAAA=</HashCode>
+      <FileName>LinkedList\SinglyLinkedList\SinglyLinkedListEnumerator.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
