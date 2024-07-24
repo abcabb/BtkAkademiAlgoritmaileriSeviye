@@ -23,8 +23,10 @@ namespace BtkAkademiAlgoritmaileriSeviye
             //30<->20<->10
             dbLinkedList.AddLast(40);
             //30<->20<->10<->40
-            dbLinkedList.AddAfter(dbLinkedList.Head.next, new DoublyLinkedListNode<int>(21));
-            //30<->20<->21<->10<->40
+            dbLinkedList.AddAfter(dbLinkedList.Tail, new DoublyLinkedListNode<int>(21));
+            //30<->20<->10<->40<->21
+            dbLinkedList.AddBefore(dbLinkedList.Head, new DoublyLinkedListNode<int>(50));
+            //50<->30<->20<->10<->40<->21
 
             Console.ReadKey();
         }
