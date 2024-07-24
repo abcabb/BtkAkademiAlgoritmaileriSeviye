@@ -26,14 +26,15 @@ namespace DataStructures.LinkedList.SinglyLinkedList
         {
             if(_current == null)
             {
-                Head = _current;
+                _current = Head;
                 return true;
             }
             else
             {
                 _current = _current.next;
-                return _current != null ? true : false;   
+                return _current != null ? true : false;
             }
+
         }
 
         public void Reset()
