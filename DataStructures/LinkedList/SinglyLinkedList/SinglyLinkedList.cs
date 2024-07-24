@@ -19,7 +19,7 @@ namespace DataStructures.LinkedList.SinglyLinkedList
         public SinglyLinkedList(IEnumerable collection)
         {
             foreach (T item in collection)
-                this.AddFirst(item);
+                this.AddLast(item);
             
         }
 
@@ -168,6 +168,8 @@ namespace DataStructures.LinkedList.SinglyLinkedList
 
         public T RemoveLast()
         {
+            if (Head == null) { throw new Exception("UnderFlow. There is nothing to remove."); }
+
             var current = Head;
             SinglyLinkedListNode<T> prev = null;
 
@@ -179,6 +181,55 @@ namespace DataStructures.LinkedList.SinglyLinkedList
             T lastValue = prev.next.Value;
             prev.next = null;
             return lastValue;
+        }
+
+        public void Remove(T value)
+        {
+            if(Head == null) { throw new Exception("There is nothing to remove."); }
+            if(value == null) { throw new ArgumentNullException(); }
+
+            var current = Head;
+            SinglyLinkedListNode<T> prev = null;
+
+            while(current.next != null)
+            {
+                if (current.Value.Equals(value))
+                {
+                    //Son eleman mı?
+                    if (current.next == null)
+                    {
+                        //Son ama Tek eleman mı
+                        if(prev == null)
+                        {
+                            Head = null;
+                            return;
+                        }
+                        else //Son eleman mı
+                        {
+                            this.RemoveLast();
+                            return;
+                        }
+                    }
+                    else //Son eleman değil mi
+                    {
+                        // İlk eleman mı
+                        if(Head.Value.Equals(value))
+                        {
+                            this.RemoveFirst();
+                            return;
+                        }
+                        else // Arada bir eleman mı
+                        {
+                            prev.next = current.next;
+                            current = default;
+                            return;
+                        }
+                    }
+                }
+                prev = current;
+                current = current.next;
+            }
+            throw new ArgumentException("Verdiğiniz öğe bulunamadı");
         }
     }
 }
