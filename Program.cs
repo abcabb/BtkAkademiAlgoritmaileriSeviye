@@ -15,22 +15,15 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var dbLinkedList = new DoublyLinkedList<char>(new List<char>() { 'a', 'b', 'c', 'd' });
+            var dbLinkedList = new DoublyLinkedList<string>(new string[] {"Ali", "Veli", "Ayşe", "Fatma"});
+
+            dbLinkedList.Delete("Veli");
 
             foreach (var item in dbLinkedList)
             {
                 Console.WriteLine(item);
             }
-
-            Console.WriteLine(dbLinkedList.RemoveLast() + " removed");
-            Console.WriteLine(dbLinkedList.RemoveLast() + " removed");
-
-
-            foreach (var item in dbLinkedList)
-            {
-                Console.WriteLine(item);
-            }
-
+            
             Console.ReadKey();
         }
 

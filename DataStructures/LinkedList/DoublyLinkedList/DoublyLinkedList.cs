@@ -149,7 +149,7 @@ namespace DataStructures.LinkedList.DoublyLinkedList
         {
             if (isHeadNull) { throw new ArgumentException("There is nothing to remove."); }
 
-            var value = Head.Value;
+            var temp = Head.Value;
 
             if(Head == Tail)
             {
@@ -160,16 +160,21 @@ namespace DataStructures.LinkedList.DoublyLinkedList
             {                
                 Head = Head.next;
                 Head.prev = null;
+                // Ya Da 
+                /*
+                 * Head.next.prev = null;
+                 * Head = Head.next;
+                */
             }
 
-            return value;
+            return temp;
         }
 
         public T RemoveLast()
         {
             if (isHeadNull) { throw new ArgumentException("There is nothing to remove."); }
 
-            var value = Tail.Value;
+            var temp = Tail.Value;
 
             if(Head == Tail)
             {
@@ -180,9 +185,62 @@ namespace DataStructures.LinkedList.DoublyLinkedList
             {
                 Tail = Tail.prev;
                 Tail.next = null;
+                // Ya Da 
+                /*
+                 * Tail.prev.next = null;
+                 * Tail = Tail.prev;
+                */
             }
 
-            return value;
+            return temp;
+        }
+
+        public void Delete(T node)
+        {
+            if (node == null) throw new ArgumentNullException();
+
+            if (isHeadNull) throw new ArgumentException("There is nothing to remove.");
+            
+            if(Head == Tail)
+            {
+                if (Head.Value.Equals(node))
+                {
+                    Head = null;
+                    Tail = null;
+                    return;
+                }
+                throw new ArgumentOutOfRangeException("Value does not exist in the linked list.");
+            }
+            
+            var current = Head;
+            while(current != null)
+            {
+                //ilk eleman
+                if (current.Value.Equals(node))
+                {
+                    //ilk Eleman
+                    if(current.prev == null)
+                    {
+                        current = current.next;
+                        current.prev = null;
+                        Head = current;
+                    }
+                    else if(current.next == null) //Son eleman
+                    {
+                        current = current.prev;
+                        current.next = null;
+                        Tail = current;
+                    }
+                    else //Arada bir yerde
+                    {
+                        current.prev.next = current.next;
+                        current.next.prev = current.prev;
+                    }
+                    break;
+                }
+                current = current.next;
+            }
+            
         }
     }
 }
