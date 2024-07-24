@@ -30,5 +30,21 @@ namespace DataStructures.LinkedList.DoublyLinkedList
                 Tail = Head;
             }
         }
+
+        public void AddLast(T value)
+        {
+            if(Tail == null)
+            {
+                this.AddFirst(value);
+                return;
+            }
+
+            var newNode = new DoublyLinkedListNode<T>(value);
+
+            Tail.next = newNode;
+            newNode.next = null;
+            newNode.prev = Tail;
+            Tail = newNode;
+        }
     }
 }

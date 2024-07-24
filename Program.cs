@@ -20,6 +20,9 @@ namespace BtkAkademiAlgoritmaileriSeviye
             dbLinkedList.AddFirst(10);
             dbLinkedList.AddFirst(20);
             dbLinkedList.AddFirst(30);
+            //30<->20<->10
+            dbLinkedList.AddLast(40);
+            //30<->20<->10<->40
 
             Console.ReadKey();
         }
