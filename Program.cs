@@ -28,7 +28,12 @@ namespace BtkAkademiAlgoritmaileriSeviye
             dbLinkedList.AddBefore(dbLinkedList.Head, new DoublyLinkedListNode<int>(50));
             //50<->30<->20<->10<->40<->21
 
-            Console.ReadKey();
+            foreach (var item in dbLinkedList)
+            {
+                Console.WriteLine(item);
+            }
+
+                Console.ReadKey();
         }
     }
 }

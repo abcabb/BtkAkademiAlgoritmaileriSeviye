@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataStructures.LinkedList.DoublyLinkedList
 {
-    public class DoublyLinkedList<T>
+    public class DoublyLinkedList<T> : IEnumerable
     {
         public DoublyLinkedListNode<T> Head;
         public DoublyLinkedListNode<T> Tail;
@@ -115,6 +116,24 @@ namespace DataStructures.LinkedList.DoublyLinkedList
                 Head.prev = newNode;
                 Head = newNode;
             }
+        }
+
+        public List<DoublyLinkedListNode<T>> GetAllNodes()
+        {
+            var list = new List<DoublyLinkedListNode<T>>();
+            var current = Head;
+            
+            while(current != null)
+            {
+                list.Add(current);
+                current = current.next;
+            }
+            return list;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetAllNodes().GetEnumerator();
         }
     }
 }

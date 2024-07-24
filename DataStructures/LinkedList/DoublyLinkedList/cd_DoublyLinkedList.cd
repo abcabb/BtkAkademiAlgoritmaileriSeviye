@@ -10,9 +10,10 @@
   <Class Name="DataStructures.LinkedList.DoublyLinkedList.DoublyLinkedList&lt;T&gt;">
     <Position X="3.25" Y="1.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAAAAAIAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <HashCode>AACAABAAAAAAAIAAAAAAIAAAAAAAAQAEAAACAAAAAAA=</HashCode>
       <FileName>LinkedList\DoublyLinkedList\DoublyLinkedList.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
