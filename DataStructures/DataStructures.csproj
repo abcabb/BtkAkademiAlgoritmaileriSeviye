@@ -55,6 +55,7 @@
     <Compile Include="Stack\LinkedListStack.cs" />
     <Compile Include="Stack\Stack.cs" />
     <Compile Include="Tree\BinarySearchTree\BST.cs" />
+    <Compile Include="Tree\BinaryTree\BinaryTree.cs" />
     <Compile Include="Tree\BinaryTree\Node.cs" />
   </ItemGroup>
   <ItemGroup>
