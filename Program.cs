@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataStructures.LinkedList.SinglyLinkedList;
 using DataStructures.LinkedList.DoublyLinkedList;
+using DataStructures.Stack;
 using System.Runtime.InteropServices;
 
 namespace BtkAkademiAlgoritmaileriSeviye
@@ -15,15 +16,31 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var dbLinkedList = new DoublyLinkedList<string>(new string[] {"Ali", "Veli", "Ayşe", "Fatma"});
+            var charSet = new char[] { 'a', 'b', 'c', };
+            var stack1 = new DataStructures.Stack.Stack<char>();
+            var stack2 = new DataStructures.Stack.Stack<char>(StackType.LinkedList);
 
-            dbLinkedList.Delete("Veli");
-
-            foreach (var item in dbLinkedList)
+            foreach (char c in charSet)
             {
-                Console.WriteLine(item);
+                Console.Write(c + " ");
+                stack1.Push(c);
+                stack2.Push(c);
             }
             
+            Console.WriteLine();
+            Console.WriteLine("\nPEEK\n");
+            Console.WriteLine($"Stack1 : {stack1.Peek()}");
+            Console.WriteLine($"Stack2 : {stack2.Peek()}");
+
+            Console.WriteLine("\nCOUNT\n");
+            Console.WriteLine($"Stack1 : {stack1.Count}");
+            Console.WriteLine($"Stack2 : {stack2.Count}");
+
+            Console.WriteLine("\nPOP\n");
+            Console.WriteLine($"Stack1 : {stack1.Pop()} is removed from the list");
+            Console.WriteLine($"Stack2 : {stack2.Pop()} is removed from the list");
+
+
             Console.ReadKey();
         }
 

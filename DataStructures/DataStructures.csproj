@@ -55,6 +55,7 @@
   <ItemGroup>
     <None Include="LinkedList\DoublyLinkedList\cd_DoublyLinkedList.cd" />
     <None Include="LinkedList\SinglyLinkedList\cd_SinglyLinkedList.cd" />
+    <None Include="Stack\cd_Stack.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
