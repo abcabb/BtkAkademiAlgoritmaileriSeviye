@@ -26,8 +26,7 @@ namespace DataStructures.Queue
             Count--;
             return temp;
         }
-
-
+        
         public T Peek()
         {
             if (Count == 0) throw new Exception("Queue is empty.");
