@@ -1,22 +1,36 @@
-﻿namespace DataStructures.Stack
-{
-    internal class LinkedListStack<T> : IStack<T>
-    {
-        public int Count => throw new System.NotImplementedException();
+﻿using DataStructures.LinkedList.SinglyLinkedList;
+using System;
 
-        public void Peek()
+namespace DataStructures.Stack
+{
+    public class LinkedListStack<T> : IStack<T>
+    {
+        private readonly SinglyLinkedList<T> list = new SinglyLinkedList<T>();
+        public int Count { get; private set; }
+
+        public T Peek()
         {
-            throw new System.NotImplementedException();
+            if(Count == 0) throw new Exception("Empty Stack.");
+                        
+            return list.Head.Value;
         }
 
-        public void Pop()
+        public T Pop()
         {
-            throw new System.NotImplementedException();
+            if(Count == 0) throw new Exception("Empty Stack.");
+
+            var temp = list.RemoveFirst();
+            Count--;
+
+            return temp;
         }
 
         public void Push(T item)
         {
-            throw new System.NotImplementedException();
+            if(item == null) throw new ArgumentNullException();
+
+            list.AddFirst(item);
+            Count++;
         }
     }
 }
