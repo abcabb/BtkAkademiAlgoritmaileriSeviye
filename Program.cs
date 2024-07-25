@@ -37,12 +37,21 @@ namespace BtkAkademiAlgoritmaileriSeviye
 
             var bt = new BinaryTree<int>(); //BinaryTree class'ına ait nesne oluşuturursak
 
+            Console.WriteLine("Inorder:");
             bt.Inorder(tree1.Root).ForEach(x => Console.Write(x + " ")); //Listeye Inorder olarak kaydettiği değerlerin üstüne
-            Console.WriteLine("\n");
+            Console.WriteLine("\nInorder/Preorder:");
             bt.Preorder(tree1.Root).ForEach(x => Console.Write(x + " ")); // Bir daha listeye elemanları bu sefer Preorder olarak ekler. 
             //Dolayısıyla aynı nesne üzerinden yapacaksak, nesneyi temizlemeye yarayan bir fonksiyon kullanmalıyız. Yani nesneyi temizlemeliyiz.
 
             bt.ClearList(); // Şimdi liste temizlendi ve istediğin şekilde sıralamayı yazabilirsin.
+
+            var list = bt.PostOrder(tree1.Root);
+            Console.WriteLine();
+            Console.WriteLine("Postorder:");
+            foreach (var value in list)
+            {
+                Console.Write(value + " ");
+            }
 
             Console.ReadKey();
         }
