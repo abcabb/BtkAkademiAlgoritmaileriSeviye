@@ -54,12 +54,16 @@
     <Compile Include="Stack\ArrayStack.cs" />
     <Compile Include="Stack\LinkedListStack.cs" />
     <Compile Include="Stack\Stack.cs" />
+    <Compile Include="Tree\BinarySearchTree\BST.cs" />
+    <Compile Include="Tree\BinaryTree\Node.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LinkedList\DoublyLinkedList\cd_DoublyLinkedList.cd" />
     <None Include="LinkedList\SinglyLinkedList\cd_SinglyLinkedList.cd" />
     <None Include="Queue\cd_Queue.cd" />
     <None Include="Stack\cd_Stack.cd" />
+    <None Include="Tree\BinarySearchTree\BinaryTree.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

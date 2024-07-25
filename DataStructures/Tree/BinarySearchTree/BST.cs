@@ -14,6 +14,10 @@ namespace DataStructures.Tree.BinarySearchTree
     {
         public Node<T> Root {  get; set; }
         public BST() { }
+        public BST(IEnumerable<T> collection)
+        {
+            foreach (var item in collection) this.Add(item);
+        }
 
         public IEnumerator<T> GetEnumerator()
         {
@@ -64,5 +68,7 @@ namespace DataStructures.Tree.BinarySearchTree
                 }
             }
         }
+
+
     }
 }

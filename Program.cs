@@ -9,6 +9,7 @@ using DataStructures.LinkedList.SinglyLinkedList;
 using DataStructures.LinkedList.DoublyLinkedList;
 using DataStructures.Stack;
 using DataStructures.Queue;
+using DataStructures.Tree.BinarySearchTree;
 using System.Runtime.InteropServices;
 
 namespace BtkAkademiAlgoritmaileriSeviye
@@ -17,7 +18,7 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-
+            BST<int> tree1 = new BST<int>(new List<int>() { 22, 15, 36, 20, 3, 30, 50 });
 
             Console.ReadKey();
         }
