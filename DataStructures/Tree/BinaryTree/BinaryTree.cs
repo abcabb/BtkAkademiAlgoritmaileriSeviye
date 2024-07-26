@@ -133,7 +133,31 @@ namespace DataStructures.Tree.BinaryTree
 
         public List<Node<T>> PostOrderNonRecursiveTraversal(Node<T> root)
         {
-            throw new NotImplementedException();
+            var list = new List<Node<T>>();
+            var S1 = new DataStructures.Stack.Stack<Node<T>>();
+            var S2 = new DataStructures.Stack.Stack<Node<T>>();
+            var currentNode = root;
+
+            if (root == null) throw new Exception("This tree is empty.");
+
+            S1.Push(currentNode);
+            while(S1.Count != 0)
+            {
+                currentNode = S1.Pop();
+                S2.Push(currentNode);
+                if(currentNode.left != null) 
+                    S1.Push(currentNode.left);
+                if(currentNode.right != null)
+                    S1.Push(currentNode.right);
+            }
+
+            while(S2.Count != 0)
+            {
+                list.Add(S2.Peek());
+                S2.Pop();
+            }
+
+            return list;
         }
         
         public List<Node<T>> LevelOrderNonRecursiveTraversal(Node<T> root)

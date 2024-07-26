@@ -37,6 +37,16 @@ namespace BtkAkademiAlgoritmaileriSeviye
             Console.WriteLine();
             foreach (var item in list3) Console.WriteLine(item);
 
+            var list4 = bt.LevelOrderNonRecursiveTraversal(tree1.Root);
+
+            Console.WriteLine();
+            foreach (var item in list4) Console.WriteLine(item);
+
+            var list5 = bt.PostOrderNonRecursiveTraversal(tree1.Root);
+
+            Console.WriteLine();
+            foreach (var item in list5) Console.WriteLine(item);
+
             Console.ReadKey();
         }
     }
