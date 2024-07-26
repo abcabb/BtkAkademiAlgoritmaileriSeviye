@@ -100,26 +100,18 @@ namespace DataStructures.Tree.BinarySearchTree
 
         public Node<T> Find(T value)
         {
-            var wantedNode = new Node<T>(value);
             var currentNode = Root;
 
-            while(currentNode != null)
+            while(value.CompareTo(currentNode.Value) != 0)
             {
-                if(wantedNode.Value.CompareTo(currentNode.Value) < 0)
-                {
+                if (value.CompareTo(currentNode.Value) < 0)
                     currentNode = currentNode.left;
-                }
-                else if(wantedNode.Value.CompareTo(currentNode.Value) > 0)
-                {
-                 
+                else
                     currentNode = currentNode.right;
-                }
-                else // wantedNode.Value.CompareTo(currentNode.Value) == 0
-                {
-                    return currentNode;
-                }
+                if (currentNode == null)
+                    throw new Exception("Could not found.");
             }
-            throw new Exception("Node could not found.");
+            return currentNode;
         }
     }
 }
