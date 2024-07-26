@@ -67,6 +67,59 @@ namespace DataStructures.Tree.BinaryTree
             return list;
         }
 
+        /* BENIM YAZDIĞIM METOD */
+        /*
+        public List<Node<T>> PreorderNonRecursiveTraversal(Node<T> root)
+        {
+            var list = new List<Node<T>>();
+            var currentNode = root;
+            var S = new DataStructures.Stack.Stack<Node<T>>();
+            bool done = false;
+            while (!done)
+            {
+                if(currentNode != null)
+                {
+                    S.Push(currentNode);
+                    list.Add(currentNode);
+                    currentNode = currentNode.left;
+                }
+                else
+                {
+                    if(S.Count == 0)
+                    {
+                        done = true;
+                    }
+                    else
+                    {
+                        currentNode = S.Pop();
+                        currentNode = currentNode.right;
+                    }
+                }
+            }
+            return list;
+        }
+        */
+
+        // Hocanın Metod
+        public List<Node<T>> PreorderNonRecursiveTraversal(Node<T> root)
+        {
+            var list = new List<Node<T>>();
+            var S = new DataStructures.Stack.Stack<Node<T>>();
+            if (root == null) throw new Exception("This tree is empty.");
+
+            S.Push(root);
+            while(S.Count != 0)
+            {
+                var currentNode = S.Pop();               
+                list.Add(currentNode);
+                if (currentNode.right != null)
+                    S.Push(currentNode.right);
+                if(currentNode.left != null)  
+                    S.Push(currentNode.left);
+            }
+            return list;
+        }
+
         public List<Node<T>> PostOrder(Node<T> root)
         {
             if(root != null)
@@ -76,7 +129,7 @@ namespace DataStructures.Tree.BinaryTree
                 list.Add(root);
             }
             return list;
-        }
+        }        
         
         public void ClearList() => list.Clear();
     }

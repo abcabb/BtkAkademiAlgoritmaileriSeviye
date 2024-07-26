@@ -26,10 +26,16 @@ namespace BtkAkademiAlgoritmaileriSeviye
             var list = bt.Inorder(tree1.Root);
 
             foreach (var item in list) Console.WriteLine(item);
-                
+
+            Console.WriteLine();
             var list2 = bt.InorderNonRecursiveTraversal(tree1.Root); // Bu fonksiyon içerisinde liste oluşturup ona ekleme yapıp döndürdüğü için bt nesnesinin field'ını kullanmaz.
 
             foreach (var item in list2) Console.WriteLine(item);
+
+            var list3 = bt.PreorderNonRecursiveTraversal(tree1.Root);
+
+            Console.WriteLine();
+            foreach (var item in list3) Console.WriteLine(item);
 
             Console.ReadKey();
         }
