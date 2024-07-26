@@ -47,6 +47,14 @@ namespace BtkAkademiAlgoritmaileriSeviye
             Console.WriteLine();
             foreach (var item in list5) Console.WriteLine(item);
 
+            Console.WriteLine();
+            var minValue = tree1.FindMin();
+            Console.WriteLine(minValue);
+
+            Console.WriteLine();
+            var maxValue = tree1.FindMax();
+            Console.WriteLine(maxValue);
+
             Console.ReadKey();
         }
     }

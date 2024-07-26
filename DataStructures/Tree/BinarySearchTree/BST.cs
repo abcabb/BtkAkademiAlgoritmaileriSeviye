@@ -69,6 +69,32 @@ namespace DataStructures.Tree.BinarySearchTree
             }
         }
 
+        public Node<T> FindMin()
+        {
+            var currentNode = Root;
 
+            if(Root == null) throw new ArgumentNullException("This tree is empty");
+
+            while(currentNode.left != null)
+            {
+                currentNode = currentNode.left;
+            }
+
+            return currentNode;
+        }
+
+        public Node<T> FindMax()
+        {
+            var currentNode = Root;
+
+            if(Root == null) throw new ArgumentNullException("This tree is empty");
+
+            while(currentNode.right != null)
+            {
+                currentNode = currentNode.right;
+            }
+
+            return currentNode; 
+        }
     }
 }
