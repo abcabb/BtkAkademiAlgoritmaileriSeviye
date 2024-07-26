@@ -26,6 +26,36 @@ namespace DataStructures.Tree.BinaryTree
             return list;
         }
 
+        public List<Node<T>> InorderNonRecursiveTraversal(Node<T> root)
+        {
+            var list = new List<Node<T>>();
+            var S = new DataStructures.Stack.Stack<Node<T>>();
+            Node<T> currentNode = root;
+            bool done = false;
+            while (!done)
+            {
+                if(currentNode != null)
+                {
+                    S.Push(currentNode);
+                    currentNode = currentNode.left;
+                }
+                else
+                {
+                    if(S.Count == 0)
+                    {
+                        done = true;
+                    }
+                    else
+                    {
+                        currentNode = S.Pop();
+                        list.Add(currentNode);
+                        currentNode = currentNode.right;
+                    }
+                }
+            }
+            return list;
+        }
+
         public List<Node<T>> Preorder(Node<T> root)
         {
             if (root != null)

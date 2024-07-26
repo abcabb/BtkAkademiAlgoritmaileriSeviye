@@ -21,37 +21,15 @@ namespace BtkAkademiAlgoritmaileriSeviye
         {
             BST<int> tree1 = new BST<int>(new List<int>() { 22, 15, 36, 20, 3, 30, 50 });
 
-            /* 
-            var list = new BinaryTree<int>().Inorder(tree1.Root); // Bu ifade List<Node<T>> döndürür.(Inorder olarak).
-            Console.WriteLine("Tree1 Inorder olarak sıralandı :");
+            var bt = new BinaryTree<int>();
 
-            foreach (var item in list) Console.WriteLine(item);*/
+            var list = bt.Inorder(tree1.Root);
 
-            /* YADA */
+            foreach (var item in list) Console.WriteLine(item);
+                
+            var list2 = bt.InorderNonRecursiveTraversal(tree1.Root); // Bu fonksiyon içerisinde liste oluşturup ona ekleme yapıp döndürdüğü için bt nesnesinin field'ını kullanmaz.
 
-            /*
-            new BinaryTree<int>().bt.Inorder(tree1.Root).ForEach(x => Console.Write(x + " ")); // Bu şekilde anlık olarak nesne oluşturup onun üzerinden ağacı düzenleyip sonucu gösteriyoruz.
-
-            new BinaryTree<int>().bt.Preorder(tree1.Root).ForEach(x => Console.Write(x + " ")); // Sonrasında çıktı alınınca nesneler kayıtlı olmadığı için yok olup gidiyorlar.
-            */
-
-            var bt = new BinaryTree<int>(); //BinaryTree class'ına ait nesne oluşuturursak
-
-            Console.WriteLine("Inorder:");
-            bt.Inorder(tree1.Root).ForEach(x => Console.Write(x + " ")); //Listeye Inorder olarak kaydettiği değerlerin üstüne
-            Console.WriteLine("\nInorder/Preorder:");
-            bt.Preorder(tree1.Root).ForEach(x => Console.Write(x + " ")); // Bir daha listeye elemanları bu sefer Preorder olarak ekler. 
-            //Dolayısıyla aynı nesne üzerinden yapacaksak, nesneyi temizlemeye yarayan bir fonksiyon kullanmalıyız. Yani nesneyi temizlemeliyiz.
-
-            bt.ClearList(); // Şimdi liste temizlendi ve istediğin şekilde sıralamayı yazabilirsin.
-
-            var list = bt.PostOrder(tree1.Root);
-            Console.WriteLine();
-            Console.WriteLine("Postorder:");
-            foreach (var value in list)
-            {
-                Console.Write(value + " ");
-            }
+            foreach (var item in list2) Console.WriteLine(item);
 
             Console.ReadKey();
         }
