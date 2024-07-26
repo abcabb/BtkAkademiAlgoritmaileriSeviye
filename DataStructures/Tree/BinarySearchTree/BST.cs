@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -95,6 +96,30 @@ namespace DataStructures.Tree.BinarySearchTree
             }
 
             return currentNode; 
+        }
+
+        public Node<T> Find(T value)
+        {
+            var wantedNode = new Node<T>(value);
+            var currentNode = Root;
+
+            while(currentNode != null)
+            {
+                if(wantedNode.Value.CompareTo(currentNode.Value) < 0)
+                {
+                    currentNode = currentNode.left;
+                }
+                else if(wantedNode.Value.CompareTo(currentNode.Value) > 0)
+                {
+                 
+                    currentNode = currentNode.right;
+                }
+                else // wantedNode.Value.CompareTo(currentNode.Value) == 0
+                {
+                    return currentNode;
+                }
+            }
+            throw new Exception("Node could not found.");
         }
     }
 }

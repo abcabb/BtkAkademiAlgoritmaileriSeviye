@@ -55,6 +55,9 @@ namespace BtkAkademiAlgoritmaileriSeviye
             var maxValue = tree1.FindMax();
             Console.WriteLine(maxValue);
 
+            Console.WriteLine();
+            Console.WriteLine(tree1.Find(20).Value);
+            
             Console.ReadKey();
         }
     }
