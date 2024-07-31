@@ -15,49 +15,25 @@ using DataStructures.Tree.BinaryTree;
 
 namespace BtkAkademiAlgoritmaileriSeviye
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            BST<int> tree1 = new BST<int>(new List<int>() { 22, 15, 36, 20, 3, 30, 50 });
+            BST<int> tree1 = new BST<int>(new List<int>() { 60,45,70,35,50,65,85 });
 
             var bt = new BinaryTree<int>();
 
-            var list = bt.Inorder(tree1.Root);
-
-            foreach (var item in list) Console.WriteLine(item);
-
-            Console.WriteLine();
-            var list2 = bt.InorderNonRecursiveTraversal(tree1.Root); // Bu fonksiyon içerisinde liste oluşturup ona ekleme yapıp döndürdüğü için bt nesnesinin field'ını kullanmaz.
-
-            foreach (var item in list2) Console.WriteLine(item);
-
-            var list3 = bt.PreorderNonRecursiveTraversal(tree1.Root);
+            var list1 = bt.Inorder(tree1.Root);
+            foreach (var item in list1) { Console.Write(item + " "); }    
 
             Console.WriteLine();
-            foreach (var item in list3) Console.WriteLine(item);
+            tree1.Remove(tree1.Root, 35);
 
-            var list4 = bt.LevelOrderNonRecursiveTraversal(tree1.Root);
+            bt.ClearList();
 
-            Console.WriteLine();
-            foreach (var item in list4) Console.WriteLine(item);
+            var list2 = bt.Inorder(tree1.Root);
+            foreach (var item in list2) { Console.Write(item + " "); }           
 
-            var list5 = bt.PostOrderNonRecursiveTraversal(tree1.Root);
-
-            Console.WriteLine();
-            foreach (var item in list5) Console.WriteLine(item);
-
-            Console.WriteLine();
-            var minValue = tree1.FindMin();
-            Console.WriteLine(minValue);
-
-            Console.WriteLine();
-            var maxValue = tree1.FindMax();
-            Console.WriteLine(maxValue);
-
-            Console.WriteLine();
-            Console.WriteLine(tree1.Find(20).Value);
-            
             Console.ReadKey();
         }
     }

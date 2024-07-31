@@ -70,11 +70,11 @@ namespace DataStructures.Tree.BinarySearchTree
             }
         }
 
-        public Node<T> FindMin()
+        public Node<T> FindMin(Node<T> root)
         {
-            var currentNode = Root;
+            var currentNode = root;
 
-            if(Root == null) throw new ArgumentNullException("This tree is empty");
+            if(root == null) throw new ArgumentNullException("This tree is empty");
 
             while(currentNode.left != null)
             {
@@ -84,11 +84,11 @@ namespace DataStructures.Tree.BinarySearchTree
             return currentNode;
         }
 
-        public Node<T> FindMax()
+        public Node<T> FindMax(Node<T> root)
         {
-            var currentNode = Root;
+            var currentNode = root;
 
-            if(Root == null) throw new ArgumentNullException("This tree is empty");
+            if(root == null) throw new ArgumentNullException("This tree is empty");
 
             while(currentNode.right != null)
             {
@@ -112,6 +112,46 @@ namespace DataStructures.Tree.BinarySearchTree
                     throw new Exception("Could not found.");
             }
             return currentNode;
+        }
+
+        public Node<T> Remove(Node<T> root,T value) // Fonksiyonu recursive yapacağımız için root'u her seferinde girdi olarak alıyor.
+        {
+            if (root == null) return root; // throw new ArgumentNulllException
+
+            if (value.CompareTo(root.Value)<0)
+            {
+                root.left = Remove(root.left, value);
+            }
+            else if (value.CompareTo(root.Value) > 0)
+            {
+                root.right = Remove(root.right, value);
+            }
+            else
+            {
+                //Silme işlemini uygulayabiliriz.
+                //Tek çocuklu olma durumları
+                if (root.left == null)
+                {
+                    return root.right;
+                }
+                else if(root.right == null)
+                {
+                    return root.left;
+                }
+                //iki çocuklu olma durumu
+
+                root.Value = FindMin(root.right).Value;
+                root.right = Remove(root.right, root.Value);
+            }
+            return root;
+            // Fonksiyonu şöyle açıklamaya çalışalım:
+            
+            /* Fonskiyon her sonuçta bir root değeri dönüyor. Bu root değeri ancak silinmek istenen eleman bulunursa null dönecek. Eğer elemanı bulamadıysa fonksiyon kendini bir daha 
+            çağırıyor. Daha sonra bulunduğu döngü itibari ile (yani değeri bulmadığı an için) o koşulu fonksiyonu uygluayarak geçiyor ve en sondaki return root'a gidiyor.
+            Bu şekilde olduğu değeri koruyor. Kendini çağırdığı kısmın içine bakacak olursak, değeri bulana kadar ilerliyor, değeri bulunca tek çocuklu çocuksuz (aynı şey) veya
+            iki çocuklu olma durumuna göre değerini null döndürüyor ve düğümü silmiş oluyor veya iki çocukluysa, successor'unun değerini alıyor ve successor'unu silmek için
+            yine aynı şekilde fonksiyon kendini rekürsif olarak çağırıyor.
+            */
         }
     }
 }
