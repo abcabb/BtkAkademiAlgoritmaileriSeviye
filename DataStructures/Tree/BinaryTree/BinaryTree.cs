@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +10,7 @@ namespace DataStructures.Tree.BinaryTree
 {
     public class BinaryTree<T> where T : IComparable
     {
+        public Node<T> Root { get; set; }
         public List<Node<T>> list { get; private set; }
         public BinaryTree()
         {
@@ -191,6 +193,36 @@ namespace DataStructures.Tree.BinaryTree
             int rightDepth = MaxDepth(root.right);
 
             return (leftDepth>rightDepth) ? leftDepth+1 : rightDepth+1;
+        }
+
+        public Node<T> DeepestNode(Node<T> root)
+        {
+            if(root == null) throw new ArgumentNullException();
+            var Q = new DataStructures.Queue.Queue<Node<T>>();
+            var currentNode = new Node<T>();
+
+            Q.Enqueue(root);
+            while(Q.Count != 0)
+            {
+                currentNode = Q.Dequeue();
+                if(currentNode.left != null)
+                {
+                    Q.Enqueue(currentNode.left);
+                }
+                if(currentNode.right != null)
+                {
+                    Q.Enqueue(currentNode.right);
+                }
+            }
+
+            return currentNode; 
+        }
+
+        public Node<T> DeepestNode()
+        {
+            var list1 = this.LevelOrderNonRecursiveTraversal(this.Root);
+
+            return list1[list1.Count-1];
         }
     }
 }
