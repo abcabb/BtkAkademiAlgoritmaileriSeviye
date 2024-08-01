@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataStructures.Tree.BinaryTree
 {
-    public class BinaryTree<T> where T : IComparable
+    public class BinaryTree<T> where T : IComparable<T>
     {
         public Node<T> Root { get; set; }
         public List<Node<T>> list { get; private set; }
