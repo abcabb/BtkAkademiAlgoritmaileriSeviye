@@ -19,20 +19,16 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            BST<int> tree1 = new BST<int>(new List<int>() { 60,45,70,35,50,65,85 });
+            var bst = new DataStructures.Tree.BinarySearchTree.BST<byte>(new byte[] { 60, 40, 70, 20, 45, 65, 85 });
 
-            var bt = new BinaryTree<int>();
+            var list1 = new DataStructures.Tree.BinaryTree.BinaryTree<byte>().Inorder(bst.Root);
 
-            var list1 = bt.Inorder(tree1.Root);
-            foreach (var item in list1) { Console.Write(item + " "); }    
+            foreach (var node in list1) Console.Write(node + " ");
 
             Console.WriteLine();
-            tree1.Remove(tree1.Root, 35);
-
-            bt.ClearList();
-
-            var list2 = bt.Inorder(tree1.Root);
-            foreach (var item in list2) { Console.Write(item + " "); }           
+            Console.WriteLine($"Min     : {bst.FindMin(bst.Root)}");
+            Console.WriteLine($"Max     : {bst.FindMax(bst.Root)}");
+            Console.WriteLine($"Depth   : {DataStructures.Tree.BinaryTree.BinaryTree<byte>.MaxDepth(bst.Root)}");
 
             Console.ReadKey();
         }

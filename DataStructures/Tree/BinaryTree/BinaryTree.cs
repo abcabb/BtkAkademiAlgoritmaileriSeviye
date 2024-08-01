@@ -181,5 +181,16 @@ namespace DataStructures.Tree.BinaryTree
         }
 
         public void ClearList() => list.Clear();
+
+
+        public static int MaxDepth(Node<T> root)
+        {
+            if(root == null) return 0;
+
+            int leftDepth = MaxDepth(root.left);
+            int rightDepth = MaxDepth(root.right);
+
+            return (leftDepth>rightDepth) ? leftDepth+1 : rightDepth+1;
+        }
     }
 }
