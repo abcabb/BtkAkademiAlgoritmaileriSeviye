@@ -21,11 +21,9 @@ namespace BtkAkademiAlgoritmaileriSeviye
         {
             var bst = new DataStructures.Tree.BinarySearchTree.BST<int>(new int[] {23, 16, 45, 3, 22, 37, 99});
 
-            bst.Remove(bst.Root,22);
+            bst.Remove(bst.Root, 3);
 
-            Console.WriteLine($"Number of leafs : {DataStructures.Tree.BinaryTree.BinaryTree<int>.NumberOfLeafs(bst.Root)}");
-            Console.WriteLine($"Number of Full Nodes : {BinaryTree<int>.NumberOfFullNodes(bst.Root)}");
-            Console.WriteLine($"Number of Half Nodes : {BinaryTree<int>.NumberOfHalfNodes(bst.Root)}");
+            new BinaryTree<int>().PrintPaths(bst.Root);
 
             Console.ReadKey();
         }

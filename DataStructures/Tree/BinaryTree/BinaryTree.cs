@@ -257,5 +257,34 @@ namespace DataStructures.Tree.BinaryTree
 
         public static int NumberOfHalfNodes(Node<T> root) => new BinaryTree<T>().LevelOrderNonRecursiveTraversal(root)
             .Where(x => (x.left != null && x.right == null) || (x.left == null && x.right != null)).ToList().Count;
+        
+        public void PrintPaths(Node<T> root)
+        {
+            var path = new T[16];
+            PrintPaths(root, path, 0);
+        }
+
+        private void PrintPaths(Node<T> root, T[] path, int pathLen)
+        {
+            if(root == null) return;
+
+            path[pathLen] = root.Value;
+            pathLen++;
+
+            if (root.left == null && root.right == null)
+                printArray(path, pathLen);
+            else
+            {
+                PrintPaths(root.left, path, pathLen);
+                PrintPaths(root.right, path, pathLen);
+            }
+        }
+
+        private void printArray(T[] array, int len)
+        {
+            for(int i = 0; i < len; i++) Console.Write(array[i] + " ");
+            Console.WriteLine();
+        }
+
     }
 }
