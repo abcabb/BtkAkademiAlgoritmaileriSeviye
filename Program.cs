@@ -19,20 +19,9 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var bt = new DataStructures.Tree.BinaryTree.BinaryTree<char>();
-            bt.Root = new Node<char>('F');
-            bt.Root.left = new Node<char>('A');
-            bt.Root.right = new Node<char>('T');
-            bt.Root.left.left = new Node<char>('S');
+            var bst = new DataStructures.Tree.BinarySearchTree.BST<int>(new int[] {23, 16, 45, 3, 22, 37, 99});
 
-            var list1 = bt.LevelOrderNonRecursiveTraversal(bt.Root);
-            
-            foreach (var item in list1) Console.Write(item + " ");
-
-            Console.WriteLine();
-            Console.WriteLine($"Deepest Node :   {bt.DeepestNode()}");
-            Console.WriteLine($"Deepest Node :   {bt.DeepestNode(bt.Root)}");
-            Console.WriteLine($"Max. Depth  :   {BinaryTree<char>.MaxDepth(bt.Root)}");
+            Console.WriteLine($"Number of leafs : {DataStructures.Tree.BinaryTree.BinaryTree<int>.NumberOfLeafs(bst.Root)}");
 
             Console.ReadKey();
         }

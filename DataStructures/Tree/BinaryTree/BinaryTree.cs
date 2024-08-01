@@ -224,5 +224,32 @@ namespace DataStructures.Tree.BinaryTree
 
             return list1[list1.Count-1];
         }
+
+        public static int NumberOfLeafs(Node<T> root)
+        {
+            int count = 0;
+            var Q = new DataStructures.Queue.Queue<Node<T>>();
+            var currentNode = new Node<T>();
+
+            Q.Enqueue(root);
+            while(Q.Count != 0)
+            {
+                currentNode = Q.Dequeue();
+                if (currentNode.left == null && currentNode.right == null)
+                    count++;
+                if (currentNode.left != null)
+                    Q.Enqueue(currentNode.left);
+                if (currentNode.right != null)
+                    Q.Enqueue(currentNode.right);
+            }
+
+            return count;
+
+            /* ALTERNATİF METOD
+            
+            return new DataStructures.Tree.BinaryTree.BinaryTree<T>().LevelOrderNonRecursiveTraversal(root).where(x=> x.right == null && x.left == null).ToList().Count;
+
+            */
+        }
     }
 }
