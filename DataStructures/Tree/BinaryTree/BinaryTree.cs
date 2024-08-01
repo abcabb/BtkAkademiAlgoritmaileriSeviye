@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -251,5 +252,10 @@ namespace DataStructures.Tree.BinaryTree
 
             */
         }
+
+        public static int NumberOfFullNodes(Node<T> root) => new BinaryTree<T>().LevelOrderNonRecursiveTraversal(root).Where(x => x.left != null && x.right != null).ToList().Count;
+
+        public static int NumberOfHalfNodes(Node<T> root) => new BinaryTree<T>().LevelOrderNonRecursiveTraversal(root)
+            .Where(x => (x.left != null && x.right == null) || (x.left == null && x.right != null)).ToList().Count;
     }
 }
