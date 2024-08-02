@@ -45,7 +45,7 @@ namespace DataStructures.Heap
         protected override void HeapifyUp()
         {
             int index = position - 1;
-            while (Array[GetParentIndex(index)].CompareTo(Array[index]) > 0 && !(IsRoot(index)))
+            while (!(IsRoot(index)) && Array[GetParentIndex(index)].CompareTo(Array[index]) > 0)
             {
                 swap(GetParentIndex(index), index);
                 index = GetParentIndex(index);

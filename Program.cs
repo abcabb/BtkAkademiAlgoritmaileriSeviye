@@ -19,9 +19,16 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var bst = new BST<int>(new int[] {23, 16, 45, 3, 22, 37, 99});
+            var heap = new DataStructures.Heap.MinHeap<int>(new int[] { 4, 1, 10, 8, 7, 5, 9, 11 });
 
-            foreach (int node in bst) Console.WriteLine(node);
+            Console.WriteLine($"{heap.DeleteMinMax()} has been removed.\n"); 
+
+            foreach (var item in heap) Console.WriteLine(item);
+
+            heap.Add(5);
+
+            Console.WriteLine();
+            foreach (var item in heap) Console.WriteLine(item);
 
             Console.ReadKey();
         }

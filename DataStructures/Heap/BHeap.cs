@@ -74,7 +74,7 @@ namespace DataStructures.Heap
         {
             if (position == 0) throw new IndexOutOfRangeException("Undeflow");
             var temp = Array[0];
-            Array[0] = Array[position];
+            Array[0] = Array[position-1];
             position--;
             Count--;
             HeapifyDown();
