@@ -74,12 +74,12 @@ namespace DataStructures.Set
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return set.Values.Select(x => x.Value).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }
