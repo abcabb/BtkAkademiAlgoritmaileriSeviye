@@ -44,7 +44,12 @@ namespace DataStructures.Heap
 
         protected override void HeapifyUp()
         {
-            throw new NotImplementedException();
+            int index = position - 1;
+            while (Array[GetParentIndex(index)].CompareTo(Array[index]) > 0 && !(IsRoot(index)))
+            {
+                swap(GetParentIndex(index), index);
+                index = GetParentIndex(index);
+            }
         }
     }
 }

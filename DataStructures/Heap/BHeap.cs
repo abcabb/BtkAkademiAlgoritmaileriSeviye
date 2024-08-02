@@ -11,7 +11,7 @@ namespace DataStructures.Heap
     public abstract class BHeap<T> : IEnumerable<T> where T: IComparable<T>
     {
         public T[] Array { get; private set; }
-        private int position;
+        protected int position;
         public int Count { get; private set; }
         public BHeap()
         {
