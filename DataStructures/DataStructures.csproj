@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Array\Array.cs" />
     <Compile Include="Heap\BHeap.cs" />
+    <Compile Include="Heap\MaxHeap.cs" />
     <Compile Include="Heap\MinHeap.cs" />
     <Compile Include="LinkedList\DoublyLinkedList\DoublyLinkedList.cs" />
     <Compile Include="LinkedList\DoublyLinkedList\DoublyLinkedListNode.cs" />
