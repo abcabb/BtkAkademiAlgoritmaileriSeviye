@@ -44,7 +44,32 @@ namespace DataStructures.Set
 
         public void Union(T valueA, T valueB)
         {
-            throw new NotImplementedException();
+            if (valueA == null || valueB == null) throw new ArgumentNullException();
+
+            var rootA = FindSet(valueA);
+            var rootB = FindSet(valueB);
+
+            if (rootA.Equals(rootB)) return;
+
+            var nodeA = set[rootA];
+            var nodeB = set[rootB];
+
+            if(nodeA.Rank == nodeB.Rank)
+            {
+                nodeB.Parent = nodeA;
+                nodeA.Rank++;
+            }
+            else
+            {
+                if(nodeA.Rank > nodeB.Rank)
+                {
+                    nodeB.Parent = nodeA;
+                }
+                else
+                {
+                    nodeA.Parent = nodeB; 
+                }
+            }
         }
 
         public IEnumerator<T> GetEnumerator()
