@@ -19,14 +19,22 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var heap = new DataStructures.Heap.MaxHeap<int>(new int[] { 54, 45, 36, 27, 29, 18, 21, 11 });
+            var disjointSet = new DataStructures.Set.DisjointSet<int>(new int[] { 0, 1, 2, 3, 4, 5, 6 });
 
-            foreach (var item in heap) Console.WriteLine(item);
+            for(int i = 0; i < 7; i++)
+            {
+                Console.WriteLine($"FindSet({i}) = {disjointSet.FindSet(i)}");
+            }
 
-            heap.DeleteMinMax();
+            disjointSet.Union(5, 6);
+            disjointSet.Union(1, 2);
+            disjointSet.Union(0, 2);
 
             Console.WriteLine();
-            foreach (var item in heap) Console.WriteLine(item);
+            for (int i = 0; i < 7;i++)
+            {
+                Console.WriteLine($"FindSet({i}) = {disjointSet.FindSet(i)}");  
+            }
 
             Console.ReadKey();
         }

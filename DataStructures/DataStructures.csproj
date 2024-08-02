@@ -54,6 +54,10 @@
     <Compile Include="Queue\ArrayQueue.cs" />
     <Compile Include="Queue\LinkedListQueue.cs" />
     <Compile Include="Queue\Queue.cs" />
+    <Compile Include="Set\DisjointSet.cs" />
+    <Compile Include="Set\DisjointSetNode.cs" />
+    <Compile Include="Shared\CustomComparer.cs" />
+    <Compile Include="Shared\SortDirection.cs" />
     <Compile Include="Stack\ArrayStack.cs" />
     <Compile Include="Stack\LinkedListStack.cs" />
     <Compile Include="Stack\Stack.cs" />
@@ -67,6 +71,7 @@
     <None Include="LinkedList\DoublyLinkedList\cd_DoublyLinkedList.cd" />
     <None Include="LinkedList\SinglyLinkedList\cd_SinglyLinkedList.cd" />
     <None Include="Queue\cd_Queue.cd" />
+    <None Include="Set\cb_DisjointSet.cd" />
     <None Include="Stack\cd_Stack.cd" />
     <None Include="Tree\BinarySearchTree\BinaryTree.cd" />
   </ItemGroup>

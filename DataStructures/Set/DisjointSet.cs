@@ -14,6 +14,16 @@ namespace DataStructures.Set
 
         public int Count { get; private set; }
 
+        public DisjointSet() { }
+
+        public DisjointSet(IEnumerable<T> collection)
+        {
+            foreach (var item in collection)
+            {
+                this.MakeSet(item);
+            }
+        }
+
         public void MakeSet(T value)
         {
             if (set.ContainsKey(value)) throw new Exception("This key has already been described.");
