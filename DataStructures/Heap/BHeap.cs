@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataStructures.Heap
 {
-    public class BHeap<T>
+    public abstract class BHeap<T> : IEnumerable<T>
     {
         public T[] Array { get; private set; }
         private int position;
@@ -45,5 +47,44 @@ namespace DataStructures.Heap
             return Array[0];
         }
 
+        public void swap(int first, int second)
+        {
+            var temp = Array[first];
+            Array[first] = Array[second];
+            Array[second] = temp;
+        }
+
+        public void Add(T value)
+        {
+            if (position == Array.Length) throw new IndexOutOfRangeException("Overflow");
+            Array[position] = value;
+            position++;
+            Count++;
+            HeapifyUp();
+        }
+
+        public T DeleteMinMax()
+        {
+            if (position == 0) throw new IndexOutOfRangeException("Undeflow");
+            var temp = Array[0];
+            Array[0] = Array[position];
+            position--;
+            Count--;
+            HeapifyDown();
+            return temp;
+        }
+
+        protected abstract void HeapifyUp();
+        protected abstract void HeapifyDown();
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return Array.Take(position).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }
