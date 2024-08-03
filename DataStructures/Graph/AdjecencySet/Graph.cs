@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,17 +10,35 @@ namespace DataStructures.Graph.AdjecencySet
 {
     public class Graph<T> : IGraph<T>
     {
-        public bool isWeightedGraph => throw new NotImplementedException();
+        private Dictionary<T, GraphVertex<T>> vertices;
+        public bool isWeightedGraph => false;
 
-        public int Count => throw new NotImplementedException();
+        public int Count => vertices.Count;
 
-        public IGraphVertex<T> ReferanceVertex => throw new NotImplementedException();
+        public IGraphVertex<T> ReferanceVertex => vertices[this.First()];
 
-        public IEnumerable<IGraphVertex<T>> VerticesAsEnumerable => throw new NotImplementedException();
+        public IEnumerable<IGraphVertex<T>> VerticesAsEnumerable => vertices.Select(x => x.Value);
+
+        public Graph()
+        {
+            vertices = new Dictionary<T, GraphVertex<T>>();
+        }
+
+        public Graph(IEnumerable<T> collection)
+        {
+            vertices = new Dictionary<T, GraphVertex<T>>();
+            foreach (var item in collection)
+            {
+                this.AddVertex(item);
+            }
+        }
 
         public void AddVertex(T key)
         {
-            throw new NotImplementedException();
+            if (key == null) throw new ArgumentNullException();
+
+            var newVertex = new GraphVertex<T>(key);
+            vertices.Add(key, newVertex);
         }
 
         public IGraph<T> Clone()
