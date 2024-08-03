@@ -132,8 +132,20 @@ namespace DataStructures.Graph.AdjecencySet
 
         public void RemoveVertex(T key)
         {
-            // Bir düğümü silmek için öncelikle ilişkilerini ortadan kaldırıp, sonra düğümün kendisini de silebiliriz.
+            if(key == null) throw new ArgumentNullException();
 
+            if (!vertices.ContainsKey(key)) throw new ArgumentException("The vertex does not exist.");
+
+            // Bir düğümü silmek için öncelikle ilişkilerini ortadan kaldırıp, sonra düğümün kendisini de silebiliriz.
+            // Destination vertex'lerin Edges field'larında bizim edges field'ımız sayesinde gezerek bize dönen okları onların edges field'ından tek tek siliyoru<z. 
+            foreach (var edge in vertices[key].Edges)
+            {
+                edge.Edges.Remove(vertices[key]);
+            }
+            //Kendi edges field'ımızı da tamemen silip, iki yönlü bağlantıların hepsini temizlemiş oluyoruz.
+            vertices[key].Edges.Clear(); // Hoca bunu hiç yazmadı çünkü düğümü silince otomatik olarak field'lar da siliniyor. Sadece örnek olsun diye silmeyeceğim.
+
+            vertices.Remove(key);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
