@@ -71,23 +71,24 @@ namespace DataStructures.Graph.AdjecencySet
         private class WeightedGraphVertex<T, TW> : IGraphVertex<T>
             where TW : IComparable
         {
-            public T Key => throw new NotImplementedException();
+            public Dictionary<WeightedGraphVertex<T, TW>, TW> Edges;
+            public T Key { get; private set; }
 
-            public IEnumerable<IEdge<T>> Edges => throw new NotImplementedException();
+            IEnumerable<IEdge<T>> IGraphVertex<T>.Edges => Edges.Select(x => new Edge<T, TW>(x.Key, x.Value));
 
             public IEdge<T> GetEdge(IGraphVertex<T> target)
             {
-                throw new NotImplementedException();
+                return new Edge<T, TW>(target, Edges[target as WeightedGraphVertex<T, TW>]);
             }
 
             public IEnumerator<T> GetEnumerator()
             {
-                throw new NotImplementedException();
+                return Edges.Select(x => x.Key.Key).GetEnumerator();
             }
 
             IEnumerator IEnumerable.GetEnumerator()
             {
-                throw new NotImplementedException();
+                return GetEnumerator();
             }
         }
     }
