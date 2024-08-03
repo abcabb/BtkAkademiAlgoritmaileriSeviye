@@ -44,10 +44,11 @@ namespace BtkAkademiAlgoritmaileriSeviye
             Console.WriteLine("Vertex'ler ve Bağlantıları : \n");
             foreach (var key in graph) //Böyle gezdiğinde, graph'in dictionary'sinin içerisinden key değerleri alırsın.
             {
-                Console.WriteLine(key);
+                Console.WriteLine(key + " has relation with :");
                 foreach (var vertex in graph.GetVertex(key).Edges)
                 {
-                    Console.WriteLine($" {vertex}"); //bir vertex'i nasıl direkt değerini gösterebildik anlamadım.
+                    Console.WriteLine($"\t\t\t{vertex}"); //bir vertex'i nasıl direkt değerini gösterebildik anlamadım. Ama sanırım yine foreach fonksiyonun çalışma şekliyle alakalı olacaktır.
+                    // Yani sanırım foreach ile bir GraphVertex nesnesine ulaşıp consolewrite ile gösterince sanırım direkt nesnenin key property'sini alıyo.
                 }
             }
 
