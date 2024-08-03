@@ -41,9 +41,28 @@ namespace DataStructures.Graph.AdjecencySet
             vertices.Add(key, newVertex);
         }
 
-        public IGraph<T> Clone()
+        IGraph<T> IGraph<T>.Clone() // Graph yapısını tamamen kopyalayıp kullanıcıya döner.
         {
-            throw new NotImplementedException();
+            return Clone();
+        }
+
+        public Graph<T> Clone()
+        {
+            var graph = new Graph<T>();
+            foreach (var vertex in vertices)
+            {
+                graph.AddVertex(vertex.Key);
+            }
+
+            foreach (var vertex in vertices)
+            {
+                foreach (var edge in vertex.Value.Edges)
+                {
+                    graph.AddEdge(vertex.Key, edge.Key);
+                }
+            }
+
+            return graph;
         }
 
         public bool ContainsVertex(T key)
