@@ -84,7 +84,7 @@ namespace DataStructures.Graph.AdjecencySet
 
         public IGraphVertex<T> GetVertex(T key)
         {
-            throw new NotImplementedException();
+            return vertices[key];
         }
 
         public bool HasEdge(T source, T dest)
