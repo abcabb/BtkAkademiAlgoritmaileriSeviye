@@ -79,7 +79,7 @@ namespace DataStructures.Graph.AdjecencySet
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return vertices.Select(x=> x.Key).GetEnumerator();
         }
 
         public IGraphVertex<T> GetVertex(T key)
@@ -119,7 +119,7 @@ namespace DataStructures.Graph.AdjecencySet
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
 
         private class GraphVertex<T> : IGraphVertex<T>
