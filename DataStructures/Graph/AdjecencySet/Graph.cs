@@ -71,6 +71,21 @@ namespace DataStructures.Graph.AdjecencySet
             throw new NotImplementedException();
         }
 
+        public void AddEdge(T source, T dest)
+        {
+            if (source == null || dest == null) 
+                throw new ArgumentNullException();
+
+            if(!vertices.ContainsKey(source) || !vertices.ContainsKey(dest)) 
+                throw new ArgumentException("The vertex' you are trying to add edge betweeen, might not exist in the graph right now.");
+
+            if (vertices[source].Edges.Contains(vertices[dest]) || vertices[dest].Edges.Contains(vertices[source])) 
+                throw new ArgumentException("This edge already has been connected between these Vertex'.");
+
+            vertices[source].Edges.Add(vertices[dest]);
+            vertices[dest].Edges.Add(vertices[source]);
+        }
+
         public void RemoveEdge(T source, T dest)
         {
             throw new NotImplementedException();
