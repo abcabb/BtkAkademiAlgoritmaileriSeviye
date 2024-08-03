@@ -89,7 +89,13 @@ namespace DataStructures.Graph.AdjecencySet
 
         public bool HasEdge(T source, T dest)
         {
-            throw new NotImplementedException();
+            if(source == null || dest == null) 
+                throw new ArgumentNullException();
+
+            if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+                throw new ArgumentException("The vertex' you are trying to search to hasEdge? , might not exist in the graph right now.");
+
+            return vertices[source].Edges.Contains(vertices[dest]) && vertices[dest].Edges.Contains(vertices[source]);
         }
 
         public void AddEdge(T source, T dest)
