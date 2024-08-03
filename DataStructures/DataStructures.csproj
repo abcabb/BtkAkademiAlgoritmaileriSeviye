@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Array\Array.cs" />
+    <Compile Include="Graph\AdjecencySet\Graph.cs" />
+    <Compile Include="Graph\Edge.cs" />
+    <Compile Include="Graph\IGraph.cs" />
     <Compile Include="Heap\BHeap.cs" />
     <Compile Include="Heap\MaxHeap.cs" />
     <Compile Include="Heap\MinHeap.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="Tree\BinaryTree\Node.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Graph\AdjecencySet\cb_AdjencencySet.cd" />
     <None Include="Heap\cb_BHeap.cd" />
     <None Include="LinkedList\DoublyLinkedList\cd_DoublyLinkedList.cd" />
     <None Include="LinkedList\SinglyLinkedList\cd_SinglyLinkedList.cd" />

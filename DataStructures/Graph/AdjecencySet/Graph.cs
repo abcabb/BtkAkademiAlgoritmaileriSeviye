@@ -153,7 +153,7 @@ namespace DataStructures.Graph.AdjecencySet
             return GetEnumerator();
         }
 
-        private class GraphVertex<T> : IGraphVertex<T>
+        private class GraphVertex<T> : IGraphVertex<T> // İçeriğindeki metodları anlamadım
         {
             public T Key { get; private set; }
             public HashSet<GraphVertex<T>> Edges;
@@ -161,10 +161,11 @@ namespace DataStructures.Graph.AdjecencySet
             public GraphVertex(T key)
             {
                 Key = key;
+                Edges = new HashSet<GraphVertex<T>>();
             }
 
             IEnumerable<IEdge<T>> IGraphVertex<T>.Edges =>
-                Edges.Select(x => new Edge<T, int>(x, 1));
+                Edges.Select(x => new Edge<T, int>(x, 1)); // anlamadım
 
             public IEdge<T> GetEdge(IGraphVertex<T> target)
             {

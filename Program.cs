@@ -19,21 +19,36 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var disjointSet = new DataStructures.Set.DisjointSet<int>(new int[] { 0, 1, 2, 3, 4, 5, 6 });
+            var graph = new DataStructures.Graph.AdjecencySet.Graph<char>(new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G' });
 
-            for(int i = 0; i < 7; i++)
+            graph.AddEdge('A', 'B');
+            graph.AddEdge('A', 'D');
+            graph.AddEdge('C', 'D');
+            graph.AddEdge('C', 'E');
+            graph.AddEdge('D', 'E');
+            graph.AddEdge('E', 'F');
+            graph.AddEdge('F', 'G');
+
+            Console.WriteLine("Is there an edge between A and B ?\t" + graph.HasEdge('A','B'));
+            Console.WriteLine("Is there an edge between A and C ?\t" + graph.HasEdge('A', 'C'));
+            Console.WriteLine("Is there an edge between D and E ?\t" + graph.HasEdge('D', 'E'));
+            Console.WriteLine("Is there an edge between F and G ?\t" + graph.HasEdge('F', 'G'));
+
+            foreach (var vertex in graph) // foreach ile bu dictionary'i dolaşırsan dictionary'nin key'ini alırsın. Foreach'i inşa ederken öyle ayarladık.
             {
-                Console.WriteLine($"FindSet({i}) = {disjointSet.FindSet(i)}");
+                Console.WriteLine(vertex);
             }
+            Console.WriteLine($"Number of vertex in the graph : {graph.Count}\n");
 
-            disjointSet.Union(5, 6);
-            disjointSet.Union(1, 2);
-            disjointSet.Union(0, 2);
 
-            Console.WriteLine();
-            for (int i = 0; i < 7;i++)
+            Console.WriteLine("Vertex'ler ve Bağlantıları : \n");
+            foreach (var key in graph) //Böyle gezdiğinde, graph'in dictionary'sinin içerisinden key değerleri alırsın.
             {
-                Console.WriteLine($"FindSet({i}) = {disjointSet.FindSet(i)}");  
+                Console.WriteLine(key);
+                foreach (var vertex in graph.GetVertex(key).Edges)
+                {
+                    Console.WriteLine($" {vertex}"); //bir vertex'i nasıl direkt değerini gösterebildik anlamadım.
+                }
             }
 
             Console.ReadKey();

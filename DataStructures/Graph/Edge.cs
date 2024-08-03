@@ -10,17 +10,15 @@ namespace DataStructures.Graph
         where C : IComparable  
     {
         private object weight { get; }
+        public T TargetVertexKey => TargetVertex.Key;
+
+        public IGraphVertex<T> TargetVertex { get; private set; }
 
         public Edge(IGraphVertex<T> target, C weight)
         {
             TargetVertex = target;
             this.weight = weight;
         }
-
-        public T TargetVertexKey => TargetVertex.Key;
-
-        public IGraphVertex<T> TargetVertex { get; private set; }
-
 
         public W Weight<W>() where W : IComparable<T> //Extra Ultimate Not-Necessary Function to get weight.
         {
