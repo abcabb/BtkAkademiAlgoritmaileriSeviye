@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -115,12 +116,24 @@ namespace DataStructures.Graph.AdjecencySet
 
         public void RemoveEdge(T source, T dest)
         {
-            throw new NotImplementedException();
+            if (source == null || dest == null)
+                throw new ArgumentNullException();
+
+            if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+                throw new ArgumentException("The vertex' you are trying to remove the edge betweeen, might not exist in the graph right now.");
+
+            if (!vertices[source].Edges.Contains(vertices[dest])
+                || !vertices[dest].Edges.Contains(vertices[source]))
+                throw new Exception("The edge you are trying to remove does not exist.");
+
+            vertices[source].Edges.Remove(vertices[dest]);
+            vertices[dest].Edges.Remove(vertices[source]);
         }
 
         public void RemoveVertex(T key)
         {
-            throw new NotImplementedException();
+            // Bir düğümü silmek için öncelikle ilişkilerini ortadan kaldırıp, sonra düğümün kendisini de silebiliriz.
+
         }
 
         IEnumerator IEnumerable.GetEnumerator()
