@@ -67,12 +67,14 @@ namespace DataStructures.Graph.AdjecencySet
 
         public bool ContainsVertex(T key)
         {
-            throw new NotImplementedException();
+            return vertices.ContainsKey(key);
         }
 
         public IEnumerable<T> Edges(T key)
         {
-            throw new NotImplementedException();
+            if(key == null) throw new ArgumentNullException();
+
+            return vertices[key].Edges.Select(x => x.Key);
         }
 
         public IEnumerator<T> GetEnumerator()
