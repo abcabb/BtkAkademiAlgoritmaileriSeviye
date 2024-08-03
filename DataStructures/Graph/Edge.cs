@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DataStructures.Graph
 {
     public class Edge<T,C> : IEdge<T>  // T key, C ağırlık değerini temsil eder.
-        where C : IComparable<T>          
+        where C : IComparable  
     {
         private object weight { get; }
 
@@ -17,13 +17,12 @@ namespace DataStructures.Graph
             this.weight = weight;
         }
 
-
         public T TargetVertexKey => TargetVertex.Key;
 
         public IGraphVertex<T> TargetVertex { get; private set; }
 
 
-        public W Weight<W>() where W : IComparable
+        public W Weight<W>() where W : IComparable<T> //Extra Ultimate Not-Necessary Function to get weight.
         {
             return (W)weight;
         }

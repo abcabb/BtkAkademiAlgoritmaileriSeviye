@@ -69,23 +69,30 @@ namespace DataStructures.Graph.AdjecencySet
 
         private class GraphVertex<T> : IGraphVertex<T>
         {
-            public T Key => throw new NotImplementedException();
+            public T Key { get; private set; }
+            public HashSet<GraphVertex<T>> Edges;
 
-            public IEnumerable<IEdge<T>> Edges => throw new NotImplementedException();
-
-            public IEdge<T> GetEdge(IGraphVertex<T> key)
+            public GraphVertex(T key)
             {
-                throw new NotImplementedException();
+                Key = key;
+            }
+
+            IEnumerable<IEdge<T>> IGraphVertex<T>.Edges =>
+                Edges.Select(x => new Edge<T, int>(x, 1));
+
+            public IEdge<T> GetEdge(IGraphVertex<T> target)
+            {
+                return new Edge<T, int>(target, 1);
             }
 
             public IEnumerator<T> GetEnumerator()
             {
-                throw new NotImplementedException();
+                return Edges.Select(x=> x.Key).GetEnumerator();
             }
 
             IEnumerator IEnumerable.GetEnumerator()
             {
-                throw new NotImplementedException();
+                return GetEnumerator();
             }
         }
     }

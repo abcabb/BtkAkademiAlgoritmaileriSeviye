@@ -26,13 +26,13 @@ namespace DataStructures.Graph
     {
         T Key { get; }  //Tepe noktamızın değeri/anahtarı.
         IEnumerable<IEdge<T>> Edges { get; }    //Tepe noktamızın kenarlarının bulunduğu collection.
-        IEdge<T> GetEdge(IGraphVertex<T> key); //Spesifik bir kenarı hedef tepeyi göstererek almak için.
+        IEdge<T> GetEdge(IGraphVertex<T> target); //Spesifik bir kenarı hedef tepeyi göstererek almak için.
     }
 
     public interface IEdge<T>
     {
         T TargetVertexKey { get; } //Bir kenarın hedef olarak gösterdiği tepe noktasının değeri/anahtarı.
         IGraphVertex<T> TargetVertex { get; } //Bir kenarın hedef olarak gösterdiği tepe noktası.
-        W Weight<W>() where W : IComparable; //Kenarın ağırlığı.
+        W Weight<W>() where W : IComparable<T>; //Kenarın ağırlığı.
     }
 }
