@@ -12,6 +12,7 @@ using DataStructures.Queue;
 using DataStructures.Tree.BinarySearchTree;
 using System.Runtime.InteropServices;
 using DataStructures.Tree.BinaryTree;
+using DataStructures.Graph.AdjecencySet;
 
 namespace BtkAkademiAlgoritmaileriSeviye
 {
@@ -19,39 +20,26 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var graph = new DataStructures.Graph.AdjecencySet.Graph<char>(new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G' });
+            var weightedGraph = new DataStructures.Graph.AdjecencySet.WeightedGraph<char, double>(new char[] { 'A', 'B', 'C', 'D' });
 
-            graph.AddEdge('A', 'B');
-            graph.AddEdge('A', 'D');
-            graph.AddEdge('C', 'D');
-            graph.AddEdge('C', 'E');
-            graph.AddEdge('D', 'E');
-            graph.AddEdge('E', 'F');
-            graph.AddEdge('F', 'G');
+            weightedGraph.AddEdge('A', 'B', 1.2);
+            weightedGraph.AddEdge('A', 'D', 2.3);
+            weightedGraph.AddEdge('C', 'D', 5.5);
 
-            Console.WriteLine("Is there an edge between A and B ?\t" + graph.HasEdge('A','B'));
-            Console.WriteLine("Is there an edge between A and C ?\t" + graph.HasEdge('A', 'C'));
-            Console.WriteLine("Is there an edge between D and E ?\t" + graph.HasEdge('D', 'E'));
-            Console.WriteLine("Is there an edge between F and G ?\t" + graph.HasEdge('F', 'G'));
+            Console.WriteLine("Is there an edge between A and B ? {0}", weightedGraph.HasEdge('A', 'B') ? "Yes" : "No");
+            Console.WriteLine("Is there an edge between A and D ? {0}", weightedGraph.HasEdge('A', 'D') ? "Yes" : "No");
 
-            foreach (var vertex in graph) // foreach ile bu dictionary'i dolaşırsan dictionary'nin key'ini alırsın. Foreach'i inşa ederken öyle ayarladık.
+            foreach (var vertex in weightedGraph) // GetEnumerator() fonksiyonu Select(x=>x.Key) ile her seferinde Dictionary'nin Key değerini yani char değerini döndürecek.
             {
-                Console.WriteLine(vertex);
-            }
-            Console.WriteLine($"Number of vertex in the graph : {graph.Count}\n");
-
-
-            Console.WriteLine("Vertex'ler ve Bağlantıları : \n");
-            foreach (var key in graph) //Böyle gezdiğinde, graph'in dictionary'sinin içerisinden key değerleri alırsın.
-            {
-                Console.WriteLine(key + " has relation with :");
-                foreach (var vertex in graph.GetVertex(key).Edges)
+                Console.WriteLine(vertex + "'s relations :");
+                foreach (var key in weightedGraph.GetVertex(vertex)) // Buradaki foreach Düğümün GetEnumerator() fonksiyonunu çalıştırır.
+                    // vertex sadece key değeri oluduğu için GetVertex() ile weightedGraphVertex nesnesini aldık. GetEnumerator() çalışınca edges field'ınınn değerlerini döner.
                 {
-                    Console.WriteLine($"\t\t\t{vertex}"); //bir vertex'i nasıl direkt değerini gösterebildik anlamadım. Ama sanırım yine foreach fonksiyonun çalışma şekliyle alakalı olacaktır.
-                    // Yani sanırım foreach ile bir GraphVertex nesnesine ulaşıp consolewrite ile gösterince sanırım direkt nesnenin key property'sini alıyo.
+                    var node = weightedGraph.GetVertex(key); // Target Vertex'in değeri ile target vertex nesnesine eriştik.
+                    Console.WriteLine($"{vertex} - weight - {key} "); /*{node.GetEdge(weightedGraph.GetVertex(vertex)).Weight<double>()}*/ //Bunu yapamadım hata alıyorum. Sonra bakacağım.
                 }
             }
-
+            Console.WriteLine($"There is {weightedGraph.Count} vertex.");
             Console.ReadKey();
         }
     }
