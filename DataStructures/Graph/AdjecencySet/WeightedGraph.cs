@@ -18,7 +18,21 @@ namespace DataStructures.Graph.AdjecencySet
         public IGraphVertex<T> ReferanceVertex => vertices[this.First()];
 
         public IEnumerable<IGraphVertex<T>> VerticesAsEnumerable => vertices.Select(x => x.Value);
-         
+
+        public WeightedGraph()
+        {
+            vertices = new Dictionary<T, WeightedGraphVertex<T, TW>>();
+        }
+
+        public WeightedGraph(IEnumerable<T> collection)
+        {
+            vertices = new Dictionary<T, WeightedGraphVertex<T, TW>>();
+            foreach (T item in collection)
+            {
+                this.AddVertex(item);
+            }
+        }
+
         public void AddVertex(T key)
         {
             if (key == null) throw new ArgumentNullException();
