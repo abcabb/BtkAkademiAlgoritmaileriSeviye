@@ -41,12 +41,12 @@ namespace DataStructures.Graph.AdjecencySet
             vertices.Add(key, newVertex);
         }
 
-        IGraph<T> IGraph<T>.Clone()
+        IGraph<T> IGraph<T>.Clone() //Interface'i uygulamış olmak için bu metodu yazdık. Ve bunu gizledik.
         {
             return Clone();
         }
 
-        public WeightedGraph<T,TW> Clone()
+        public WeightedGraph<T,TW> Clone() // Class'ımızın asıl clone metodu budur.
         {
             var weightedGraph = new WeightedGraph<T,TW>();
 
