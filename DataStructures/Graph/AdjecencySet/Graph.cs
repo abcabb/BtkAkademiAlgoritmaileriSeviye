@@ -47,7 +47,8 @@ namespace DataStructures.Graph.AdjecencySet
             return Clone();
         }
 
-        public Graph<T> Clone()
+        public Graph<T> Clone() // Clone() metodunu bir daha bu class için inşa etmemizin sebebi sanırım Clone metoduna erişmenin tek yolunun IGraph interface'i üzerinden olmasını engellemek için.
+            //Ya da sadece kodun okunurluğunu da arttırabilir. Tam emin değilim. Bir iki hafta içerisinde bunları da çok kolay anlıyor seviyeye geleceğim.
         {
             var graph = new Graph<T>();
             foreach (var vertex in vertices)
