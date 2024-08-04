@@ -38,6 +38,12 @@ namespace DataStructures.Graph
 
         public T TargetVertexKey => TargetVertex.Key;
 
+        public DiEdge(IDiGraphVertex<T> targetVertex, TW weight)
+        {
+            this.weight = weight;
+            TargetVertex = targetVertex;
+        }
+
         IGraphVertex<T> IEdge<T>.TargetVertex => TargetVertex as IGraphVertex<T>;
 
         public W Weight<W>() where W : IComparable<T>

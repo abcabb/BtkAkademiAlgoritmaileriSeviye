@@ -166,11 +166,15 @@ namespace DataStructures.Graph.AdjecencySet
             }
 
             IEnumerable<IEdge<T>> IGraphVertex<T>.Edges =>
-                Edges.Select(x => new Edge<T, int>(x, 1)); // anlamadım
+                Edges.Select(x => new Edge<T, int>(x, 1)); // Edges field'ından Select ile bir örnek alıyoruz ve bu GraphVertex instance'ı yeni Edge instance'ı oluşturmada kullanıyoruz.
+            // IEdge<T> collection'unu dolaşıyoruz, ve her bir Edges elemanı yani GraphVertex için bir Edge nesnesi oluşturuyoruz. 
+            //Böylece HashSet içerisinde bulunan her bir "Target" GraphVertex ağırlığı 1, targetVertex'i kendisi olan bir Edge nesnesi oluşturmuş oluyor.
+            //Böylece bütün bu "Edge" olan "targetVertex"'lerin Edge olarak özelliklerine erişebiliyoruz. Mesela ağırlığını öğrenmek istersek weight fonksiyonunu kullanırız.
+            //Benim şu anda anladığım bu.
 
             public IEdge<T> GetEdge(IGraphVertex<T> target)
             {
-                return new Edge<T, int>(target, 1);
+                return new Edge<T, int>(target, 1);  //Anlamadım.
             }
 
             public IEnumerator<T> GetEnumerator()

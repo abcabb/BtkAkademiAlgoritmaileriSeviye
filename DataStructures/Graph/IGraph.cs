@@ -49,6 +49,7 @@ namespace DataStructures.Graph
     }
     public interface IDiEdge<T> : IEdge<T>
     {
-        new IDiGraphVertex<T> TargetVertex { get; }
+        new IDiGraphVertex<T> TargetVertex { get; } // new kelimesi gizlemeye yarar. Yani, interface'den gelen bir metod yada property'yi oradakini grme buradaki şekliyle uygula! demektir.
+        // Bu şekilde ocmpiler o metodun bu olduğunu yani interface'in implemente edildiğini bilir. ve gizlenen eski metodu değil new kelimesiyle belirleneni uygular.
     }
 }

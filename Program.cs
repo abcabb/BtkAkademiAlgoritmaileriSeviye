@@ -36,7 +36,7 @@ namespace BtkAkademiAlgoritmaileriSeviye
                     // vertex sadece key değeri oluduğu için GetVertex() ile weightedGraphVertex nesnesini aldık. GetEnumerator() çalışınca edges field'ınınn değerlerini döner.
                 {
                     var node = weightedGraph.GetVertex(key); // Target Vertex'in değeri ile target vertex nesnesine eriştik.
-                    Console.WriteLine($"{vertex} - weight - {key} "); /*{node.GetEdge(weightedGraph.GetVertex(vertex)).Weight<double>()}*/ //Bunu yapamadım hata alıyorum. Sonra bakacağım.
+                    Console.WriteLine($"{vertex} - - {key} "); /*{node.GetEdge(weightedGraph.GetVertex(vertex)).Weight<double>()}*/ //Bunu yapamadım hata alıyorum. Sonra bakacağım.
                 }
             }
             Console.WriteLine($"There is {weightedGraph.Count} vertex.");
