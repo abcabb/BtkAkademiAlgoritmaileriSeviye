@@ -8,74 +8,161 @@ using System.Threading.Tasks;
 
 namespace DataStructures.Graph.AdjecencySet
 {
-    internal class WeightedDiGraph<T, TW> : IDiGraph<T>
+    public class WeightedDiGraph<T, TW> : IDiGraph<T>
         where TW : IComparable
     {
-        public IDiGraphVertex<T> ReferanceVertex => throw new NotImplementedException();
+        private Dictionary<T, WeightedDiGraphVertex<T, TW>> vertices;
+        public IDiGraphVertex<T> ReferanceVertex => vertices[this.First()];
 
-        public IEnumerable<IDiGraphVertex<T>> VerticesAsEnumerable => throw new NotImplementedException();
+        public IEnumerable<IDiGraphVertex<T>> VerticesAsEnumerable =>
+            vertices.Select(x => x.Value);
 
-        public bool isWeightedGraph => throw new NotImplementedException();
+        public bool isWeightedGraph => true;
 
-        public int Count => throw new NotImplementedException();
+        public int Count => vertices.Count;
 
-        IGraphVertex<T> IGraph<T>.ReferanceVertex => throw new NotImplementedException();
+        IGraphVertex<T> IGraph<T>.ReferanceVertex => 
+            vertices[this.First()] as IGraphVertex<T>;
 
-        IEnumerable<IGraphVertex<T>> IGraph<T>.VerticesAsEnumerable => throw new NotImplementedException();
+        IEnumerable<IGraphVertex<T>> IGraph<T>.VerticesAsEnumerable =>
+            vertices.Select(x => x.Value);
+
+        public WeightedDiGraph()
+        {
+            vertices = new Dictionary<T, WeightedDiGraphVertex<T, TW>>();
+        }
+
+        public WeightedDiGraph(IEnumerable<T> collection)
+        {
+            vertices = new Dictionary<T, WeightedDiGraphVertex<T, TW>>();
+            foreach (var item in collection)
+                AddVertex(item);
+        }
 
         public void AddVertex(T key)
         {
-            throw new NotImplementedException();
+            if(key == null) throw new ArgumentNullException();
+
+            var newVertex = new WeightedDiGraphVertex<T,TW>(key);
+            vertices.Add(key, newVertex);
         }
 
-        public IGraph<T> Clone()
+        IGraph<T> IGraph<T>.Clone()
         {
-            throw new NotImplementedException();
+            return Clone();
+        }
+
+        public WeightedDiGraph<T,TW> Clone()
+        {
+            var weightedDiGraph = new WeightedDiGraph<T,TW>();
+
+            foreach (var item in vertices)
+            {
+                weightedDiGraph.AddVertex(item.Key);
+            }
+
+            foreach (var item in vertices)
+            {
+                foreach (var edge in item.Value.OutEdges)
+                {
+                    weightedDiGraph.AddEdge(item.Value.Key, edge.Key.Key, edge.Value);
+                }
+            }
+
+            return weightedDiGraph;
         }
 
         public bool ContainsVertex(T key)
         {
-            throw new NotImplementedException();
+            return vertices.ContainsKey(key);
         }
 
         public IEnumerable<T> Edges(T key)
         {
-            throw new NotImplementedException();
+            if(key == null) throw new ArgumentNullException();
+
+            return vertices[key].OutEdges.Select(x => x.Key.Key);
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return vertices.Select(x=> x.Key).GetEnumerator();
         }
 
         public IDiGraphVertex<T> GetVertex(T key)
         {
-            throw new NotImplementedException();
+            return vertices[key];
         }
 
         public bool HasEdge(T source, T dest)
         {
-            throw new NotImplementedException();
+            if (source == null || dest == null)
+                throw new ArgumentNullException();
+
+            if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+                throw new ArgumentException("The vertex' you are trying to search to hasEdge? , might not exist in the graph right now.");
+
+            return vertices[source].OutEdges.ContainsKey(vertices[dest]) && vertices[dest].InEdges.ContainsKey(vertices[source]);
+        }
+
+        public void AddEdge(T source, T dest, TW weight)
+        {
+            if (source == null || dest == null)
+                throw new ArgumentNullException();
+
+            if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+                throw new ArgumentException("The vertex' you are trying to add edge betweeen, might not exist in the graph right now.");
+
+            if (vertices[source].OutEdges.ContainsKey(vertices[dest]) || vertices[dest].InEdges.ContainsKey(vertices[source]))
+                throw new ArgumentException("This edge already has been connected between these Vertex'.");
+
+            vertices[source].OutEdges.Add(vertices[dest], weight);
+            vertices[dest].InEdges.Add(vertices[source], weight);
         }
 
         public void RemoveEdge(T source, T dest)
         {
-            throw new NotImplementedException();
+            if (source == null || dest == null)
+                throw new ArgumentNullException();
+
+            if (!vertices.ContainsKey(source) || !vertices.ContainsKey(dest))
+                throw new ArgumentException("The vertex' you are trying to remove the edge betweeen, might not exist in the graph right now.");
+
+            if (!vertices[source].OutEdges.ContainsKey(vertices[dest])
+                || !vertices[dest].InEdges.ContainsKey(vertices[source]))
+                throw new Exception("The edge you are trying to remove does not exist.");
+
+            vertices[source].OutEdges.Remove(vertices[dest]);
+            vertices[dest].InEdges.Remove(vertices[source]);
         }
 
         public void RemoveVertex(T key)
         {
-            throw new NotImplementedException();
+            if (key == null) throw new ArgumentNullException();
+
+            if (!vertices.ContainsKey(key)) throw new ArgumentException("The vertex does not exist.");
+
+            foreach (var targetVertex in vertices[key].OutEdges)
+            {
+                targetVertex.Key.InEdges.Remove(vertices[key]);
+            }
+
+            foreach (var vertex in vertices[key].InEdges)
+            {
+                vertex.Key.OutEdges.Remove(vertices[key]);
+            }
+
+            vertices.Remove(key); 
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
 
         IGraphVertex<T> IGraph<T>.GetVertex(T key)
         {
-            throw new NotImplementedException();
+            return vertices[key];
         }
 
         private class WeightedDiGraphVertex<T, TW> : IDiGraphVertex<T>
