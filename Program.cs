@@ -20,33 +20,31 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var weightedDiGraph = new DataStructures.Graph.AdjecencySet.WeightedDiGraph<char, int>(new char[] { 'A', 'B', 'C', 'D', 'E' });
+            var graph1 = new DataStructures.Graph.AdjecencySet.Graph<int>();
 
-            Console.WriteLine("Number of vertex in this graph : {0}", weightedDiGraph.Count);
+            for(int i=0; i<12; i++)
+                graph1.AddVertex(i);
 
-            weightedDiGraph.AddEdge('E', 'A', 7);
-            weightedDiGraph.AddEdge('A', 'D', 60);
-            weightedDiGraph.AddEdge('A', 'C', 12);
-            weightedDiGraph.AddEdge('B', 'A', 10);
-            weightedDiGraph.AddEdge('C', 'B', 20);
-            weightedDiGraph.AddEdge('C', 'D', 32);
+            graph1.AddEdge(0, 1);
+            graph1.AddEdge(1, 4);
+            graph1.AddEdge(0, 4);
+            graph1.AddEdge(0, 2);
+            graph1.AddEdge(2, 9);
+            graph1.AddEdge(9, 11);
+            graph1.AddEdge(2, 10);
+            graph1.AddEdge(10, 11);
+            graph1.AddEdge(2, 5);
+            graph1.AddEdge(5, 6);
+            graph1.AddEdge(5, 7);
+            graph1.AddEdge(5, 8);
+            graph1.AddEdge(7, 8);
 
-            Console.WriteLine("Is there an edge between A and B ? {0}", weightedDiGraph.HasEdge('A','B') ? "Yes" : "No");
-            Console.WriteLine("Is there an edge between B and A ? {0}", weightedDiGraph.HasEdge('B','A') ? "Yes" : "No");
+            //DFS Ile dolaş
 
-            foreach (var vertexKey in weightedDiGraph)
-            {
-                Console.WriteLine("{0}'s Relations : ",vertexKey);
-                foreach (var vertexKeyOutEdges in weightedDiGraph.GetVertex(vertexKey))
-                {
-                    var nodeU = weightedDiGraph.GetVertex(vertexKey);
-                    var nodeV = weightedDiGraph.GetVertex(vertexKeyOutEdges);
-                    var w = nodeU.GetEdge(nodeV).Weight<int>(); // SORUNU ÇÖZDÜM
-                                                                //Weight fonksiyonundaki sorun IEdge interface'inde W tipinin IComparable yerine ICompareble<T>uygulamasıydı.
-                //olmamasının sebebi de W'nun IComparable<T> interface'ini uygulayan datatypeleri isterken int,char,double gibi built-in'ler generic olmayan IComparable'ı uygular.
-                    Console.WriteLine($"{nodeU.Key} ----{w}----> {nodeV.Key}");
-                }
-            }
+            var deepFirstSearchAlgorithm = new DataStructures.Graph.Search.DepthFirst<int>();
+            int wantedValue = 5;
+
+            Console.WriteLine("{0} {1}", wantedValue, deepFirstSearchAlgorithm.Find(graph1, wantedValue) ? "Found" : "not found");
 
             Console.ReadKey();
         }

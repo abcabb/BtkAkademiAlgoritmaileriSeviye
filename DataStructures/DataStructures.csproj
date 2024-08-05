@@ -48,6 +48,7 @@
     <Compile Include="Graph\AdjecencySet\WeightedGraph.cs" />
     <Compile Include="Graph\Edge.cs" />
     <Compile Include="Graph\IGraph.cs" />
+    <Compile Include="Graph\Search\DepthFirst.cs" />
     <Compile Include="Heap\BHeap.cs" />
     <Compile Include="Heap\MaxHeap.cs" />
     <Compile Include="Heap\MinHeap.cs" />
@@ -82,6 +83,9 @@
     <None Include="Stack\cd_Stack.cd" />
     <None Include="Tree\BinarySearchTree\BinaryTree.cd" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Graph\AdjecencyList\" />
+    <Folder Include="Graph\AdjecencyMatrix\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
