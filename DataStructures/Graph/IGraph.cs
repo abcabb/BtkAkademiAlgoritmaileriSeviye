@@ -45,7 +45,7 @@ namespace DataStructures.Graph
     {
         T TargetVertexKey { get; } //Bir kenarın hedef olarak gösterdiği tepe noktasının değeri/anahtarı.
         IGraphVertex<T> TargetVertex { get; } //Bir kenarın hedef olarak gösterdiği tepe noktası.
-        W Weight<W>() where W : IComparable<T>; //Kenarın ağırlığı.
+        W Weight<W>() where W : IComparable; //Kenarın ağırlığı.
     }
     public interface IDiEdge<T> : IEdge<T>
     {

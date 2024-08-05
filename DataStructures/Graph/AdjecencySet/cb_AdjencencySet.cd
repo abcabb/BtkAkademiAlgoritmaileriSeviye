@@ -20,7 +20,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="DataStructures.Graph.AdjecencySet.WeightedGraph&lt;T, TW&gt;">
-    <Position X="6.25" Y="0.5" Width="2.5" />
+    <Position X="6.5" Y="0.5" Width="2.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -39,7 +39,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="DataStructures.Graph.AdjecencySet.DiGraph&lt;T&gt;">
-    <Position X="3.25" Y="0.5" Width="2.5" />
+    <Position X="3.75" Y="0.5" Width="2.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -58,7 +58,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="DataStructures.Graph.Edge&lt;T, TW&gt;">
-    <Position X="18.25" Y="0.5" Width="1.5" />
+    <Position X="15.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAACAAAAAggAAAAAAACAA=</HashCode>
       <FileName>Graph\Edge.cs</FileName>
@@ -66,50 +66,69 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="DataStructures.Graph.DiEdge&lt;T, TW&gt;">
-    <Position X="16" Y="0.5" Width="2" />
+    <Position X="15.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAAAAAAAEAAAAAAAAACAAAAAggAAAAAAACAA=</HashCode>
       <FileName>Graph\Edge.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="DataStructures.Graph.AdjecencySet.WeightedDiGraph&lt;T, TW&gt;">
+    <Position X="0.75" Y="0.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="DataStructures.Graph.AdjecencySet.WeightedDiGraph&lt;T, TW&gt;.WeightedDiGraphVertex&lt;T, TW&gt;">
+        <TypeIdentifier>
+          <NewMemberFileName>Graph\AdjecencySet\WeightedDiGraph.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAEgAEAAQEAIBgAiAEAAAQBAAAQACAEAABBIAAAABA=</HashCode>
+      <FileName>Graph\AdjecencySet\WeightedDiGraph.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Interface Name="DataStructures.Graph.IGraph&lt;T&gt;">
-    <Position X="12.25" Y="5.25" Width="1.5" />
+    <Position X="12" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEgAEAAAEAIAgAAAAAAAQBAAAAACAAAABBAAAAABA=</HashCode>
       <FileName>Graph\IGraph.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="DataStructures.Graph.IDiGraph&lt;T&gt;">
-    <Position X="14.25" Y="5.75" Width="1.5" />
+    <Position X="13.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEAAAEAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Graph\IGraph.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="DataStructures.Graph.IGraphVertex&lt;T&gt;">
-    <Position X="12.25" Y="2.75" Width="1.5" />
+    <Position X="12" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>Graph\IGraph.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="DataStructures.Graph.IDiGraphVertex&lt;T&gt;">
-    <Position X="14.25" Y="2.75" Width="1.5" />
+    <Position X="13.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAoAAAAAAAAAAAAQAACAAAAAAAAAAAAAAAgAAA=</HashCode>
       <FileName>Graph\IGraph.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="DataStructures.Graph.IEdge&lt;T&gt;">
-    <Position X="12.25" Y="0.75" Width="1.5" />
+    <Position X="12" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAgAAAAAAACAA=</HashCode>
       <FileName>Graph\IGraph.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="DataStructures.Graph.IDiEdge&lt;T&gt;">
-    <Position X="14.25" Y="0.75" Width="1.5" />
+    <Position X="13.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Graph\IGraph.cs</FileName>

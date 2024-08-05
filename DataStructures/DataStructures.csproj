@@ -44,6 +44,7 @@
     <Compile Include="Array\Array.cs" />
     <Compile Include="Graph\AdjecencySet\DiGraph.cs" />
     <Compile Include="Graph\AdjecencySet\Graph.cs" />
+    <Compile Include="Graph\AdjecencySet\WeightedDiGraph.cs" />
     <Compile Include="Graph\AdjecencySet\WeightedGraph.cs" />
     <Compile Include="Graph\Edge.cs" />
     <Compile Include="Graph\IGraph.cs" />

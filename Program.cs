@@ -20,33 +20,31 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var diGraph = new DataStructures.Graph.AdjecencySet.DiGraph<char>(new char[] { 'A', 'B', 'C', 'D', 'E' });
+            var weightedDiGraph = new DataStructures.Graph.AdjecencySet.WeightedDiGraph<char, int>(new char[] { 'A', 'B', 'C', 'D', 'E' });
 
-            diGraph.AddEdge('B', 'A');
-            diGraph.AddEdge('A', 'D');
-            diGraph.AddEdge('D', 'E');
-            diGraph.AddEdge('C', 'E');
-            diGraph.AddEdge('C', 'D');
-            diGraph.AddEdge('C', 'B');
-            diGraph.AddEdge('C', 'A');
+            Console.WriteLine("Number of vertex in this graph : {0}", weightedDiGraph.Count);
 
-            foreach (var key in diGraph)
+            weightedDiGraph.AddEdge('E', 'A', 7);
+            weightedDiGraph.AddEdge('A', 'D', 60);
+            weightedDiGraph.AddEdge('A', 'C', 12);
+            weightedDiGraph.AddEdge('B', 'A', 10);
+            weightedDiGraph.AddEdge('C', 'B', 20);
+            weightedDiGraph.AddEdge('C', 'D', 32);
+
+            Console.WriteLine("Is there an edge between A and B ? {0}", weightedDiGraph.HasEdge('A','B') ? "Yes" : "No");
+            Console.WriteLine("Is there an edge between B and A ? {0}", weightedDiGraph.HasEdge('B','A') ? "Yes" : "No");
+
+            foreach (var vertexKey in weightedDiGraph)
             {
-                Console.WriteLine(key + "'s Relations :");
-                foreach (var targetVertexKey in diGraph.GetVertex(key))
+                Console.WriteLine("{0}'s Relations : ",vertexKey);
+                foreach (var vertexKeyOutEdges in weightedDiGraph.GetVertex(vertexKey))
                 {
-                    Console.WriteLine($"\t{key} --> {targetVertexKey}");
-                }
-            }
-
-            diGraph.RemoveVertex('C');
-            Console.WriteLine("\n\nC Vertex Removed\n");
-            foreach (var key in diGraph)
-            {
-                Console.WriteLine(key + "'s Relations :");
-                foreach (var targetVertexKey in diGraph.GetVertex(key))
-                {
-                    Console.WriteLine($"\t{key} --> {targetVertexKey}");
+                    var nodeU = weightedDiGraph.GetVertex(vertexKey);
+                    var nodeV = weightedDiGraph.GetVertex(vertexKeyOutEdges);
+                    var w = nodeU.GetEdge(nodeV).Weight<int>(); // SORUNU ÇÖZDÜM
+                                                                //Weight fonksiyonundaki sorun IEdge interface'inde W tipinin IComparable yerine ICompareble<T>uygulamasıydı.
+                //olmamasının sebebi de W'nun IComparable<T> interface'ini uygulayan datatypeleri isterken int,char,double gibi built-in'ler generic olmayan IComparable'ı uygular.
+                    Console.WriteLine($"{nodeU.Key} ----{w}----> {nodeV.Key}");
                 }
             }
 

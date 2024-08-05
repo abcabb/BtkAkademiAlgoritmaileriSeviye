@@ -20,7 +20,7 @@ namespace DataStructures.Graph
             this.weight = weight;
         }
 
-        public W Weight<W>() where W : IComparable<T> //Extra Ultimate Not-Necessary Function to get weight.
+        public W Weight<W>() where W : IComparable //Extra Ultimate Not-Necessary Function to get weight.
         {
             return (W)weight;
         }
@@ -46,7 +46,7 @@ namespace DataStructures.Graph
 
         IGraphVertex<T> IEdge<T>.TargetVertex => TargetVertex as IGraphVertex<T>;
 
-        public W Weight<W>() where W : IComparable<T>
+        public W Weight<W>() where W : IComparable
         {
             return (W)weight;
         }
