@@ -18,8 +18,9 @@ namespace DataStructures.Graph.Search
             var Q = new DataStructures.Queue.Queue<IGraphVertex<T>>();
             Q.Enqueue(referenceVertex);
             visited.Add(referenceVertex.Key);
+            Console.WriteLine(referenceVertex.Key);
 
-            while(Q.Count > 0)
+            while (Q.Count > 0)
             {
                 var current = Q.Dequeue();
                 if (current.Key.Equals(searchVertexKey))

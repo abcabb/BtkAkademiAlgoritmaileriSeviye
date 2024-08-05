@@ -44,7 +44,16 @@ namespace BtkAkademiAlgoritmaileriSeviye
             var deepFirstSearchAlgorithm = new DataStructures.Graph.Search.DepthFirst<int>();
             int wantedValue = 5;
 
+            Console.WriteLine("DFS ILE DOLAŞ :");
             Console.WriteLine("{0} {1}", wantedValue, deepFirstSearchAlgorithm.Find(graph1, wantedValue) ? "Found" : "not found");
+
+            //BFS Ile dolaş
+
+            var breadthFirstSearchAlgorithm = new DataStructures.Graph.Search.BreadthFirst<int>();
+            wantedValue = 8;
+
+            Console.WriteLine("BFS ILE DOLAŞ : ");
+            Console.WriteLine("{0} {1}", wantedValue, breadthFirstSearchAlgorithm.Find(graph1, wantedValue) ? "Found" : "not found");
 
             Console.ReadKey();
         }
