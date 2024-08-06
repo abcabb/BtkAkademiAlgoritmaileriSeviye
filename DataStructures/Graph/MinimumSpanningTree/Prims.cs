@@ -15,7 +15,7 @@ namespace DataStructures.Graph.MinimumSpanningTree
 
             dfs(graph, graph.ReferanceVertex,
                 new Heap.BinaryHeap<MSTEdge<T, TW>>(Shared.SortDirection.Ascending), // Egde tutan minHeap
-                new HashSet<T>,
+                new HashSet<T>(),
                 edges); // Edge'lerin listesi
 
             return edges;
