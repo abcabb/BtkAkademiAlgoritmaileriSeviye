@@ -122,8 +122,40 @@ namespace DataStructures.Heap
             return temp;
         }
 
-        private void HeapifyUp() { }
-        private void HeapifyDown() { }
+        private void HeapifyUp()
+        {
+            int index = position - 1;
+            while (!(IsRoot(index)) && comparer.Compare(Array[GetParentIndex(index)], Array[index]) < 0)
+                //Array[GetParentIndex(index)].CompareTo(Array[index]) > 0)
+            {
+                swap(GetParentIndex(index), index);
+                index = GetParentIndex(index);
+            }
+        }
+        private void HeapifyDown()
+        {
+            int index = 0;
+            while (HasLeftChild(index))
+            {
+                var smallerIndex = GetLeftChildIndex(index);
+                if (HasRightChild(index) && comparer.Compare(GetRightChild(index), GetLeftChild(index)) < 0)
+                    //GetRightChild(index).CompareTo(GetLeftChild(index)) < 0
+                {
+                    smallerIndex = GetRightChildIndex(index);
+                }
+
+                if ( comparer.Compare(Array[index], Array[smallerIndex]) <= 0) //Kodu dikkatli incelersen, Bu comparer.Compare() sayesinde
+                                                                               //MinHeap ve MaxHeap durumlarına göre bu HeapifyDown fonksiyonun çalıştığını görürsün
+                                                                               //Aynı şekilde HeapifyUp için de çalışıyorlar. Gidişatı takip ederek anlayabilirsin.
+                    //Array[index].CompareTo(Array[smallerIndex]) <= 0
+                {
+                    break;
+                }
+
+                swap(index, smallerIndex);
+                index = smallerIndex;
+            }
+        }
 
         public IEnumerator<T> GetEnumerator()
         {
