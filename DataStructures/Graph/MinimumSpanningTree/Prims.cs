@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataStructures.Graph.MinimumSpanningTree
 {
-    internal class Prims <T,TW> //bunca zaman IComparable interface'ini kullanma sebebimiz, Generic ifadelerde operand'ları kullanamadıımız için CompareTo metodunun iyi bir seçenek olmasıydı.
+    public class Prims <T,TW> //bunca zaman IComparable interface'ini kullanma sebebimiz, Generic ifadelerde operand'ları kullanamadıımız için CompareTo metodunun iyi bir seçenek olmasıydı.
         where T : IComparable where TW : IComparable
     {
         public List<MSTEdge<T,TW>> FindMinimumSpanningTree(IGraph<T> graph)
@@ -35,17 +35,16 @@ namespace DataStructures.Graph.MinimumSpanningTree
                 foreach (var edge in currentVertex.Edges)
                 {
                     //min-heap
-                    var e = new MSTEdge<T, TW>(currentVertex.Key,
+                    spNeighbor.Add(new MSTEdge<T, TW>(currentVertex.Key,
                                                 edge.TargetVertexKey,
-                                                edge.Weight<TW>());
-                    spNeighbor.Add(e);
+                                                edge.Weight<TW>()));
                 }
 
                 //Minimum Edge değeri
                 var minEdge = spNeighbor.DeleteMinMax();
 
                 //Var olan kenarları dikkate alma
-                if(spVertices.Contains(minEdge.Source) && spVertices.Contains(minEdge.Destination))
+                while (spVertices.Contains(minEdge.Source) && spVertices.Contains(minEdge.Destination))
                 {
                     minEdge = spNeighbor.DeleteMinMax();
                     if(spNeighbor.Count == 0)
@@ -60,6 +59,7 @@ namespace DataStructures.Graph.MinimumSpanningTree
 
                 spVertices.Add(minEdge.Destination);
                 spEdges.Add(minEdge);
+                Console.WriteLine("Eklendi : {0}", minEdge.ToString());
 
                 currentVertex = graph.GetVertex(minEdge.Destination);
             }
