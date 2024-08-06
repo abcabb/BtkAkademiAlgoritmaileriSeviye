@@ -20,40 +20,17 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var graph1 = new DataStructures.Graph.AdjecencySet.Graph<int>();
+            var heap = new DataStructures.Heap.BinaryHeap<int>(DataStructures.Shared.SortDirection.Ascending, new int[] { 54, 45, 36, 27, 29, 18, 21, 99 });
 
-            for(int i=0; i<12; i++)
-                graph1.AddVertex(i);
+            Console.WriteLine("Min Heap :");
+            foreach (int i in heap)
+                Console.Write(i + " ");
 
-            graph1.AddEdge(0, 1);
-            graph1.AddEdge(1, 4);
-            graph1.AddEdge(0, 4);
-            graph1.AddEdge(0, 2);
-            graph1.AddEdge(2, 9);
-            graph1.AddEdge(9, 11);
-            graph1.AddEdge(2, 10);
-            graph1.AddEdge(10, 11);
-            graph1.AddEdge(2, 5);
-            graph1.AddEdge(5, 6);
-            graph1.AddEdge(5, 7);
-            graph1.AddEdge(5, 8);
-            graph1.AddEdge(7, 8);
+            var heap2 = new DataStructures.Heap.BinaryHeap<int>(DataStructures.Shared.SortDirection.Descending, new int[] { 54, 45, 36, 27, 29, 18, 21, 99 });
 
-            //DFS Ile dolaş
-
-            var deepFirstSearchAlgorithm = new DataStructures.Graph.Search.DepthFirst<int>();
-            int wantedValue = 5;
-
-            Console.WriteLine("DFS ILE DOLAŞ :");
-            Console.WriteLine("{0} {1}", wantedValue, deepFirstSearchAlgorithm.Find(graph1, wantedValue) ? "Found" : "not found");
-
-            //BFS Ile dolaş
-
-            var breadthFirstSearchAlgorithm = new DataStructures.Graph.Search.BreadthFirst<int>();
-            wantedValue = 8;
-
-            Console.WriteLine("BFS ILE DOLAŞ : ");
-            Console.WriteLine("{0} {1}", wantedValue, breadthFirstSearchAlgorithm.Find(graph1, wantedValue) ? "Found" : "not found");
+            Console.WriteLine("\nMax Heap :");
+            foreach (int i in heap2)
+                Console.Write(i + " ");
 
             Console.ReadKey();
         }

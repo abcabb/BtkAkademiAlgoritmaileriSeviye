@@ -48,9 +48,12 @@
     <Compile Include="Graph\AdjecencySet\WeightedGraph.cs" />
     <Compile Include="Graph\Edge.cs" />
     <Compile Include="Graph\IGraph.cs" />
+    <Compile Include="Graph\MinimumSpanningTree\MSTEdge.cs" />
+    <Compile Include="Graph\MinimumSpanningTree\Prims.cs" />
     <Compile Include="Graph\Search\BreadthFirst.cs" />
     <Compile Include="Graph\Search\DepthFirst.cs" />
     <Compile Include="Heap\BHeap.cs" />
+    <Compile Include="Heap\BinaryHeap.cs" />
     <Compile Include="Heap\MaxHeap.cs" />
     <Compile Include="Heap\MinHeap.cs" />
     <Compile Include="LinkedList\DoublyLinkedList\DoublyLinkedList.cs" />

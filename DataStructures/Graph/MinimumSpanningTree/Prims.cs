@@ -9,7 +9,7 @@ namespace DataStructures.Graph.MinimumSpanningTree
     internal class Prims <T,TW> //bunca zaman IComparable interface'ini kullanma sebebimiz, Generic ifadelerde operand'ları kullanamadıımız için CompareTo metodunun iyi bir seçenek olmasıydı.
         where T : IComparable where TW : IComparable
     {
-        public List<MSTEdge<T,TW>> FindMinimumSpanningTree(IGraph<T> graph)
+        /*public List<MSTEdge<T,TW>> FindMinimumSpanningTree(IGraph<T> graph)
         {
             var edges = new List<MSTEdge<T, TW>>();
 
@@ -28,6 +28,6 @@ namespace DataStructures.Graph.MinimumSpanningTree
             List<MSTEdge<T,TW>> edges)
         {
 
-        }
+        }*/
     }
 }

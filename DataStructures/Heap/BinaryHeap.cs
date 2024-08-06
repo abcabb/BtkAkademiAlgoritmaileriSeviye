@@ -125,7 +125,7 @@ namespace DataStructures.Heap
         private void HeapifyUp()
         {
             int index = position - 1;
-            while (!(IsRoot(index)) && comparer.Compare(Array[GetParentIndex(index)], Array[index]) < 0)
+            while (!(IsRoot(index)) && comparer.Compare(Array[GetParentIndex(index)], Array[index]) > 0)
                 //Array[GetParentIndex(index)].CompareTo(Array[index]) > 0)
             {
                 swap(GetParentIndex(index), index);
