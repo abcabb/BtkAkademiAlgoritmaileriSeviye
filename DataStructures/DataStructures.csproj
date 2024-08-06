@@ -48,6 +48,7 @@
     <Compile Include="Graph\AdjecencySet\WeightedGraph.cs" />
     <Compile Include="Graph\Edge.cs" />
     <Compile Include="Graph\IGraph.cs" />
+    <Compile Include="Graph\MinimumSpanningTree\Kruskals.cs" />
     <Compile Include="Graph\MinimumSpanningTree\MSTEdge.cs" />
     <Compile Include="Graph\MinimumSpanningTree\Prims.cs" />
     <Compile Include="Graph\Search\BreadthFirst.cs" />
