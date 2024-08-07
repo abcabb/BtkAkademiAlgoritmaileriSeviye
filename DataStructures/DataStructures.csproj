@@ -70,6 +70,8 @@
     <Compile Include="Set\DisjointSetNode.cs" />
     <Compile Include="Shared\CustomComparer.cs" />
     <Compile Include="Shared\SortDirection.cs" />
+    <Compile Include="SortingAlgorithms\SelectionSort.cs" />
+    <Compile Include="SortingAlgorithms\Sorting.cs" />
     <Compile Include="Stack\ArrayStack.cs" />
     <Compile Include="Stack\LinkedListStack.cs" />
     <Compile Include="Stack\Stack.cs" />

@@ -13,6 +13,7 @@ using DataStructures.Tree.BinarySearchTree;
 using System.Runtime.InteropServices;
 using DataStructures.Tree.BinaryTree;
 using DataStructures.Graph.AdjecencySet;
+using System.Runtime.CompilerServices;
 
 namespace BtkAkademiAlgoritmaileriSeviye
 {
@@ -20,31 +21,18 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var graph = new DataStructures.Graph.AdjecencySet.WeightedGraph<int, int>(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8 });
+            var arr = new int[] { 15, 3, 8, 6, 10, 2 };
 
-            graph.AddEdge(0, 1, 4);
-            graph.AddEdge(0, 7, 8);
-            graph.AddEdge(1, 7, 11);
-            graph.AddEdge(1, 2, 8);
-            graph.AddEdge(7, 8, 7);
-            graph.AddEdge(7, 6, 1);
-            graph.AddEdge(2, 3, 7);
-            graph.AddEdge(2, 5, 4);
-            graph.AddEdge(6, 5, 2);
-            graph.AddEdge(3, 5, 14);
-            graph.AddEdge(3, 4, 9);
-            graph.AddEdge(5, 4, 10);
-            graph.AddEdge(2, 8, 2);
-            graph.AddEdge(8, 6, 6);
+            Console.WriteLine("Unsorted : ");
+            foreach (var item in arr)
+                Console.Write(item + " ");
 
-            var MSTPrimsAlgorithm = new DataStructures.Graph.MinimumSpanningTree.Prims<int, int>();
-
-            MSTPrimsAlgorithm.FindMinimumSpanningTree(graph);
-
-            var MSTKruskalsAlgorithm = new DataStructures.Graph.MinimumSpanningTree.Kruskals<int, int>();
+            DataStructures.SortingAlgorithms.SelectionSort.Sort(arr);
 
             Console.WriteLine();
-            MSTKruskalsAlgorithm.FindMinimumSpanningTree(graph);
+            Console.WriteLine("Sorted : ");
+            foreach(var item in arr)
+                Console.Write(item + " ");
 
             Console.ReadKey();
         }
