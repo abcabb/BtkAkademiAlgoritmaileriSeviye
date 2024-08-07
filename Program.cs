@@ -41,6 +41,11 @@ namespace BtkAkademiAlgoritmaileriSeviye
 
             MSTPrimsAlgorithm.FindMinimumSpanningTree(graph);
 
+            var MSTKruskalsAlgorithm = new DataStructures.Graph.MinimumSpanningTree.Kruskals<int, int>();
+
+            Console.WriteLine();
+            MSTKruskalsAlgorithm.FindMinimumSpanningTree(graph);
+
             Console.ReadKey();
         }
     }

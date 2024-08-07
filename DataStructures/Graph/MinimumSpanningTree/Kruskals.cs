@@ -44,6 +44,7 @@ namespace DataStructures.Graph.MinimumSpanningTree
                     continue;
 
                 resultEdgeList.Add(currentEdge);
+                Console.WriteLine("Eklendi : {0}",currentEdge);
                 disJointSet.Union(setA, setB);
             }
 
@@ -61,7 +62,7 @@ namespace DataStructures.Graph.MinimumSpanningTree
                 foreach (var edge in currentVertex.Edges)
                 {
                     if(!visitedEdges.ContainsKey(currentVertex.Key) || !visitedEdges[currentVertex.Key].Contains(edge.TargetVertexKey)) 
-                        //Yani, visitedEdges field'ında key olarak currentVertex değeri yoksa ya da visited edges filed'ında HashSet'de current'ın targetVertexEdge key'i yoksa içeri gir.
+                        //Yani, soruce vertex ve destination vertex ikisi de varsa girmez.
                     {
                         // Edge ekleme
                         edges.Add(new MSTEdge<T, TW>(currentVertex.Key,
