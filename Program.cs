@@ -34,6 +34,13 @@ namespace BtkAkademiAlgoritmaileriSeviye
             foreach(var item in arr)
                 Console.Write(item + " ");
 
+            DataStructures.SortingAlgorithms.SelectionSort.Sort(arr, DataStructures.Shared.SortDirection.Descending);
+
+            Console.WriteLine();
+            Console.WriteLine("(Descending) Sorted : ");
+            foreach (var item in arr)
+                Console.Write(item + " ");
+
             Console.ReadKey();
         }
     }
