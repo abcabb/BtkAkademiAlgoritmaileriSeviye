@@ -41,6 +41,13 @@ namespace BtkAkademiAlgoritmaileriSeviye
             foreach (var item in arr)
                 Console.Write(item + " ");
 
+            DataStructures.SortingAlgorithms.BubbleSort.Sort(arr, DataStructures.Shared.SortDirection.Ascending);
+
+            Console.WriteLine();
+            Console.WriteLine("(Ascending) Bubble Sorted : ");
+            foreach (var item in arr)
+                Console.Write(item + " ");
+
             Console.ReadKey();
         }
     }
