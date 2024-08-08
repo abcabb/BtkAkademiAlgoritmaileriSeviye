@@ -23,30 +23,10 @@ namespace BtkAkademiAlgoritmaileriSeviye
         {
             var arr = new int[] { 15, 3, 8, 6, 10, 2 };
 
-            Console.WriteLine("Unsorted : ");
-            foreach (var item in arr)
-                Console.Write(item + " ");
+            DataStructures.SortingAlgorithms.InsertionSort.Sort<int>(arr, DataStructures.Shared.SortDirection.Ascending);
 
-            DataStructures.SortingAlgorithms.SelectionSort.Sort(arr);
-
-            Console.WriteLine();
-            Console.WriteLine("Sorted : ");
-            foreach(var item in arr)
-                Console.Write(item + " ");
-
-            DataStructures.SortingAlgorithms.SelectionSort.Sort(arr, DataStructures.Shared.SortDirection.Descending);
-
-            Console.WriteLine();
-            Console.WriteLine("(Descending) Sorted : ");
-            foreach (var item in arr)
-                Console.Write(item + " ");
-
-            DataStructures.SortingAlgorithms.BubbleSort.Sort(arr, DataStructures.Shared.SortDirection.Ascending);
-
-            Console.WriteLine();
-            Console.WriteLine("(Ascending) Bubble Sorted : ");
-            foreach (var item in arr)
-                Console.Write(item + " ");
+            foreach(int i in arr) 
+                Console.Write(i + " ");
 
             Console.ReadKey();
         }
