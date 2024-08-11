@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BtkAkademiAlgoritmaileriSev
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures", "DataStructures\DataStructures.csproj", "{9BE4E9A3-2DCE-4823-B059-8C3779086682}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomTypes", "CustomTypes\CustomTypes.csproj", "{6F726C6C-5F25-48E1-A58F-D3509C39EA30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9BE4E9A3-2DCE-4823-B059-8C3779086682}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BE4E9A3-2DCE-4823-B059-8C3779086682}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BE4E9A3-2DCE-4823-B059-8C3779086682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F726C6C-5F25-48E1-A58F-D3509C39EA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F726C6C-5F25-48E1-A58F-D3509C39EA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F726C6C-5F25-48E1-A58F-D3509C39EA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F726C6C-5F25-48E1-A58F-D3509C39EA30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

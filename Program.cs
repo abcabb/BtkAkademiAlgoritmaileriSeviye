@@ -15,6 +15,7 @@ using DataStructures.Tree.BinaryTree;
 using DataStructures.Graph.AdjecencySet;
 using System.Runtime.CompilerServices;
 using System.CodeDom;
+using CustomTypes;
 
 namespace BtkAkademiAlgoritmaileriSeviye
 {
@@ -22,18 +23,21 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            var arr = new int[] { 15, 3, 8, 6, 10, 2 };
-
-            foreach(int i in arr) 
-                Console.Write(i + " ");
-
-            var minHeap = new DataStructures.Heap.MinHeap<int>(arr);
-
-            Console.WriteLine();
-            foreach (var item in minHeap)
+            /*
+            var student = new Student()
             {
-                Console.Write(minHeap.DeleteMinMax() + " ");
-            }
+                Name = "Ahmet",                // Ctor yok iken ancak böyle tanımlama yapabiliyoruz.
+                ID = 1454,
+                GPA = "94"
+            };
+
+            Console.WriteLine(student); --> "CustomTypes.Student" çıktısı alırız 
+            */
+
+
+            var student = new Student(1453, "Fatih", "100");
+
+            Console.WriteLine(student);
 
             Console.ReadKey();
         }
