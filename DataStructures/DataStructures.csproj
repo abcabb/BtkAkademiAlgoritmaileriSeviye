@@ -72,6 +72,7 @@
     <Compile Include="Shared\SortDirection.cs" />
     <Compile Include="SortingAlgorithms\BubbleSort.cs" />
     <Compile Include="SortingAlgorithms\InsertionSort.cs" />
+    <Compile Include="SortingAlgorithms\QuickSort.cs" />
     <Compile Include="SortingAlgorithms\SelectionSort.cs" />
     <Compile Include="SortingAlgorithms\Sorting.cs" />
     <Compile Include="Stack\ArrayStack.cs" />
