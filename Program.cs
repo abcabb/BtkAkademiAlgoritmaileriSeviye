@@ -24,7 +24,7 @@ namespace BtkAkademiAlgoritmaileriSeviye
         {
             var arr = new int[] { 15, 3, 8, 6, 10, 2 };
 
-            DataStructures.SortingAlgorithms.QuickSort.Sort<int>(arr, DataStructures.Shared.SortDirection.Descending);
+            DataStructures.SortingAlgorithms.MergeSort.Sort<int>(arr, DataStructures.Shared.SortDirection.Descending);
 
             foreach(int i in arr) 
                 Console.Write(i + " ");
