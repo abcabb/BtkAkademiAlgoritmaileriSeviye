@@ -24,10 +24,16 @@ namespace BtkAkademiAlgoritmaileriSeviye
         {
             var arr = new int[] { 15, 3, 8, 6, 10, 2 };
 
-            DataStructures.SortingAlgorithms.MergeSort.Sort<int>(arr, DataStructures.Shared.SortDirection.Descending);
-
             foreach(int i in arr) 
                 Console.Write(i + " ");
+
+            var minHeap = new DataStructures.Heap.MinHeap<int>(arr);
+
+            Console.WriteLine();
+            foreach (var item in minHeap)
+            {
+                Console.Write(minHeap.DeleteMinMax() + " ");
+            }
 
             Console.ReadKey();
         }
