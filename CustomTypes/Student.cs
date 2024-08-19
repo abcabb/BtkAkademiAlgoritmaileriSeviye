@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomTypes
 {
-    public class Student
+    public class Student : IComparable
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -19,9 +19,16 @@ namespace CustomTypes
             GPA = gpa;
         }
 
+        public int CompareTo(object obj)
+        {
+            var other = (Student)obj;
+            return string.Compare(this.Name, other.Name);
+        }
+
         public override string ToString()
         {
             return $"{Name} - {GPA} - {ID}";
         }
+
     }
 }

@@ -23,21 +23,44 @@ namespace BtkAkademiAlgoritmaileriSeviye
     {
         static void Main(string[] args)
         {
-            /*
-            var student = new Student()
+            var arr = new Student[]
             {
-                Name = "Ahmet",                // Ctor yok iken ancak böyle tanımlama yapabiliyoruz.
-                ID = 1454,
-                GPA = "94"
+                new Student(12, "Enes", "99"),
+                new Student(18, "Mahir", "100"),
+                new Student(20, "Taha", "98"),
+                new Student(10, "Furkan", "97"),
+                new Student(8, "Adem", "95"),
+                new Student(7, "Turgut", "96"),
+                new Student(6, "Serpil", "93")
             };
 
-            Console.WriteLine(student); --> "CustomTypes.Student" çıktısı alırız 
-            */
+            foreach (var item in arr)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("----");
 
+            Console.WriteLine("Array<Student>");
 
-            var student = new Student(1453, "Fatih", "100");
+            var newArr = new DataStructures.Array.Array<Student>(arr);
 
-            Console.WriteLine(student);
+            foreach (var item in newArr) Console.WriteLine(item);
+            
+            Console.WriteLine("----");
+
+            Console.WriteLine("SinglyLinkedList<Student>");
+
+            var linkedList = new DataStructures.LinkedList.SinglyLinkedList.SinglyLinkedList<Student>(newArr);
+
+            linkedList.AddFirst(new Student(13, "Hikmet", "91"));
+
+            foreach (var item in linkedList) Console.WriteLine(item);
+
+            Console.WriteLine("----");
+
+            Console.WriteLine("BST<Student>");
+
+            var bst = new DataStructures.Tree.BinarySearchTree.BST<Student>(arr);
 
             Console.ReadKey();
         }
